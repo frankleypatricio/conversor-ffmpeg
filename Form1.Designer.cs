@@ -1,6 +1,6 @@
 ﻿
 namespace conversor_ffmpeg {
-    partial class Form1 {
+    partial class form_main {
         /// <summary>
         /// Variável de designer necessária.
         /// </summary>
@@ -24,35 +24,42 @@ namespace conversor_ffmpeg {
         /// o conteúdo deste método com o editor de código.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_main));
             this.btn_searchFiles = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.list_files = new System.Windows.Forms.ListView();
+            this.txt_ext = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btn_delete = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_prefix = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_scaleH = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_scaleW = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.panel9.SuspendLayout();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.lbl_progressPerc = new System.Windows.Forms.Label();
+            this.lbl_progressFile = new System.Windows.Forms.Label();
+            this.panel_progress = new System.Windows.Forms.Panel();
+            this.cbx_scale = new System.Windows.Forms.CheckBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.txt_sub = new System.Windows.Forms.TextBox();
+            this.btn_process = new FontAwesome.Sharp.IconButton();
+            this.btn_sub = new FontAwesome.Sharp.IconButton();
+            this.panel_config = new System.Windows.Forms.Panel();
+            this.panel_progress.SuspendLayout();
+            this.panel_config.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_searchFiles
             // 
             this.btn_searchFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
             this.btn_searchFiles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_searchFiles.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.btn_searchFiles, "btn_searchFiles");
             this.btn_searchFiles.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
             this.btn_searchFiles.IconColor = System.Drawing.Color.White;
@@ -84,23 +91,23 @@ namespace conversor_ffmpeg {
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
-            // listView1
+            // list_files
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.listView1, "listView1");
-            this.listView1.ForeColor = System.Drawing.Color.White;
-            this.listView1.HideSelection = false;
-            this.listView1.Name = "listView1";
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.list_files.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
+            this.list_files.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.list_files, "list_files");
+            this.list_files.ForeColor = System.Drawing.Color.White;
+            this.list_files.HideSelection = false;
+            this.list_files.Name = "list_files";
+            this.list_files.UseCompatibleStateImageBehavior = false;
             // 
-            // textBox1
+            // txt_ext
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Name = "textBox1";
+            this.txt_ext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
+            this.txt_ext.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txt_ext, "txt_ext");
+            this.txt_ext.ForeColor = System.Drawing.Color.White;
+            this.txt_ext.Name = "txt_ext";
             // 
             // panel5
             // 
@@ -108,17 +115,18 @@ namespace conversor_ffmpeg {
             resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
             // 
-            // iconButton1
+            // btn_delete
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.iconButton1, "iconButton1");
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 38;
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btn_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.btn_delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.btn_delete, "btn_delete");
+            this.btn_delete.FlatAppearance.BorderSize = 0;
+            this.btn_delete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btn_delete.IconColor = System.Drawing.Color.White;
+            this.btn_delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_delete.IconSize = 38;
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.UseVisualStyleBackColor = false;
             // 
             // panel6
             // 
@@ -126,13 +134,13 @@ namespace conversor_ffmpeg {
             resources.ApplyResources(this.panel6, "panel6");
             this.panel6.Name = "panel6";
             // 
-            // textBox2
+            // txt_prefix
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Name = "textBox2";
+            this.txt_prefix.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
+            this.txt_prefix.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txt_prefix, "txt_prefix");
+            this.txt_prefix.ForeColor = System.Drawing.Color.White;
+            this.txt_prefix.Name = "txt_prefix";
             // 
             // panel7
             // 
@@ -140,13 +148,13 @@ namespace conversor_ffmpeg {
             resources.ApplyResources(this.panel7, "panel7");
             this.panel7.Name = "panel7";
             // 
-            // textBox3
+            // txt_scaleH
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox3, "textBox3");
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Name = "textBox3";
+            this.txt_scaleH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
+            this.txt_scaleH.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txt_scaleH, "txt_scaleH");
+            this.txt_scaleH.ForeColor = System.Drawing.Color.White;
+            this.txt_scaleH.Name = "txt_scaleH";
             // 
             // panel8
             // 
@@ -154,13 +162,13 @@ namespace conversor_ffmpeg {
             resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Name = "panel8";
             // 
-            // textBox4
+            // txt_scaleW
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox4, "textBox4");
-            this.textBox4.ForeColor = System.Drawing.Color.White;
-            this.textBox4.Name = "textBox4";
+            this.txt_scaleW.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
+            this.txt_scaleW.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txt_scaleW, "txt_scaleW");
+            this.txt_scaleW.ForeColor = System.Drawing.Color.White;
+            this.txt_scaleW.Name = "txt_scaleW";
             // 
             // label1
             // 
@@ -168,73 +176,117 @@ namespace conversor_ffmpeg {
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
             this.label1.Name = "label1";
             // 
-            // progressBar1
+            // progressBar
             // 
-            resources.ApplyResources(this.progressBar1, "progressBar1");
-            this.progressBar1.Name = "progressBar1";
+            resources.ApplyResources(this.progressBar, "progressBar");
+            this.progressBar.Name = "progressBar";
             // 
-            // label2
+            // lbl_progressPerc
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.lbl_progressPerc, "lbl_progressPerc");
+            this.lbl_progressPerc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.lbl_progressPerc.Name = "lbl_progressPerc";
             // 
-            // label3
+            // lbl_progressFile
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Name = "label3";
+            resources.ApplyResources(this.lbl_progressFile, "lbl_progressFile");
+            this.lbl_progressFile.ForeColor = System.Drawing.Color.White;
+            this.lbl_progressFile.Name = "lbl_progressFile";
             // 
-            // panel9
+            // panel_progress
             // 
-            this.panel9.Controls.Add(this.label2);
-            this.panel9.Controls.Add(this.label3);
-            this.panel9.Controls.Add(this.progressBar1);
-            resources.ApplyResources(this.panel9, "panel9");
-            this.panel9.Name = "panel9";
+            this.panel_progress.Controls.Add(this.progressBar);
+            this.panel_progress.Controls.Add(this.lbl_progressPerc);
+            this.panel_progress.Controls.Add(this.lbl_progressFile);
+            resources.ApplyResources(this.panel_progress, "panel_progress");
+            this.panel_progress.Name = "panel_progress";
             // 
-            // iconButton2
+            // cbx_scale
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.iconButton2, "iconButton2");
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(203)))), ((int)(((byte)(122)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 80;
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.UseVisualStyleBackColor = false;
+            resources.ApplyResources(this.cbx_scale, "cbx_scale");
+            this.cbx_scale.Name = "cbx_scale";
+            this.cbx_scale.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            resources.ApplyResources(this.panel10, "panel10");
+            this.panel10.Name = "panel10";
+            // 
+            // txt_sub
+            // 
+            this.txt_sub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
+            this.txt_sub.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.txt_sub, "txt_sub");
+            this.txt_sub.ForeColor = System.Drawing.Color.White;
+            this.txt_sub.Name = "txt_sub";
+            // 
+            // btn_process
+            // 
+            this.btn_process.BackColor = System.Drawing.Color.Transparent;
+            this.btn_process.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_process.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btn_process, "btn_process");
+            this.btn_process.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;
+            this.btn_process.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(203)))), ((int)(((byte)(122)))));
+            this.btn_process.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_process.IconSize = 80;
+            this.btn_process.Name = "btn_process";
+            this.btn_process.UseVisualStyleBackColor = false;
+            // 
+            // btn_sub
+            // 
+            this.btn_sub.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btn_sub, "btn_sub");
+            this.btn_sub.IconChar = FontAwesome.Sharp.IconChar.ClosedCaptioning;
+            this.btn_sub.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.btn_sub.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_sub.IconSize = 37;
+            this.btn_sub.Name = "btn_sub";
+            this.btn_sub.UseVisualStyleBackColor = true;
+            // 
+            // panel_config
+            // 
+            this.panel_config.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
+            this.panel_config.Controls.Add(this.txt_ext);
+            this.panel_config.Controls.Add(this.btn_sub);
+            this.panel_config.Controls.Add(this.label1);
+            this.panel_config.Controls.Add(this.panel10);
+            this.panel_config.Controls.Add(this.panel5);
+            this.panel_config.Controls.Add(this.txt_sub);
+            this.panel_config.Controls.Add(this.txt_prefix);
+            this.panel_config.Controls.Add(this.cbx_scale);
+            this.panel_config.Controls.Add(this.panel6);
+            this.panel_config.Controls.Add(this.txt_scaleH);
+            this.panel_config.Controls.Add(this.panel7);
+            this.panel_config.Controls.Add(this.panel8);
+            this.panel_config.Controls.Add(this.txt_scaleW);
+            resources.ApplyResources(this.panel_config, "panel_config");
+            this.panel_config.Name = "panel_config";
+            // 
+            // form_main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
-            this.Controls.Add(this.iconButton2);
-            this.Controls.Add(this.panel9);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.panel_config);
+            this.Controls.Add(this.btn_process);
+            this.Controls.Add(this.panel_progress);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_searchFiles);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.list_files);
             this.ForeColor = System.Drawing.Color.White;
             this.MaximizeBox = false;
-            this.Name = "Form1";
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
+            this.Name = "form_main";
+            this.panel_progress.ResumeLayout(false);
+            this.panel_progress.PerformLayout();
+            this.panel_config.ResumeLayout(false);
+            this.panel_config.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -245,22 +297,27 @@ namespace conversor_ffmpeg {
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListView list_files;
+        private System.Windows.Forms.TextBox txt_ext;
         private System.Windows.Forms.Panel panel5;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btn_delete;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_prefix;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_scaleH;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_scaleW;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel9;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label lbl_progressPerc;
+        private System.Windows.Forms.Label lbl_progressFile;
+        private System.Windows.Forms.Panel panel_progress;
+        private System.Windows.Forms.CheckBox cbx_scale;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TextBox txt_sub;
+        private FontAwesome.Sharp.IconButton btn_process;
+        private FontAwesome.Sharp.IconButton btn_sub;
+        private System.Windows.Forms.Panel panel_config;
     }
 }
 
