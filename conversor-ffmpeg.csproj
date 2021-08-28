@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="controlers\FFmpeg.cs" />
     <Compile Include="controlers\General.cs" />
+    <Compile Include="exceptions\FileAlreadyOnList.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,7 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="business\" />
-    <Folder Include="exceptions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

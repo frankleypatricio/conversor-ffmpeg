@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using Conversor.Models;
+using Conversor.Exceptions;
 
 namespace Conversor.Controlers {
     class General {
@@ -24,12 +25,24 @@ namespace Conversor.Controlers {
         }
 
         public void addToFileList(string[] files, ref ListBox list) {
-            foreach(string file in files) {
-                MediaFile mediaFile = new MediaFile(file);
-                fileList.Add(mediaFile);
-                list.Items.Add(mediaFile.FullName);
-                listMap.Add(mediaFile.FullName, mediaFile);
+            try {
+                foreach(string file in files) {
+                    MediaFile mediaFile = new MediaFile(file);
+
+                    fileList.Add(mediaFile);
+                    list.Items.Add(mediaFile.FullPath);
+                    listMap.Add(mediaFile.FullPath, mediaFile);
+                }
+            } catch(FileAlreadyOnList e) {
+                // faliou
             }
+        }
+
+        public void removeFromFileList(string fileName, ref ListBox list) {
+            if(!listMap.ContainsKey(fileName)) return;
+            fileList.Remove(listMap[fileName]);
+            listMap.Remove(fileName);
+            list.Items.Remove(fileName);
         }
 
         public void clearFileList(ref ListBox list) {

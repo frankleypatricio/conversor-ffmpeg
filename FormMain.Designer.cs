@@ -50,6 +50,17 @@ namespace Conversor {
             this.btn_process = new FontAwesome.Sharp.IconButton();
             this.btn_sub = new FontAwesome.Sharp.IconButton();
             this.panel_config = new System.Windows.Forms.Panel();
+            this.panel_scale = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel_configHeader = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.radio_geral = new System.Windows.Forms.RadioButton();
+            this.radio_indv = new System.Windows.Forms.RadioButton();
             this.btn_output = new FontAwesome.Sharp.IconButton();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txt_output = new System.Windows.Forms.TextBox();
@@ -57,20 +68,12 @@ namespace Conversor {
             this.output = new System.Windows.Forms.SaveFileDialog();
             this.list_files = new System.Windows.Forms.ListBox();
             this.btn_remove = new FontAwesome.Sharp.IconButton();
-            this.panel_configHeader = new System.Windows.Forms.Panel();
-            this.radio_indv = new System.Windows.Forms.RadioButton();
-            this.radio_geral = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel_process = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.open_subtitle = new System.Windows.Forms.OpenFileDialog();
             this.panel_progress.SuspendLayout();
             this.panel_config.SuspendLayout();
+            this.panel_scale.SuspendLayout();
             this.panel_configHeader.SuspendLayout();
             this.panel_process.SuspendLayout();
             this.SuspendLayout();
@@ -218,6 +221,7 @@ namespace Conversor {
             resources.ApplyResources(this.cbx_scale, "cbx_scale");
             this.cbx_scale.Name = "cbx_scale";
             this.cbx_scale.UseVisualStyleBackColor = true;
+            this.cbx_scale.CheckedChanged += new System.EventHandler(this.cbx_scale_CheckedChanged);
             // 
             // panel10
             // 
@@ -258,12 +262,12 @@ namespace Conversor {
             this.btn_sub.IconSize = 37;
             this.btn_sub.Name = "btn_sub";
             this.btn_sub.UseVisualStyleBackColor = true;
+            this.btn_sub.Click += new System.EventHandler(this.btnSubtitle_Click);
             // 
             // panel_config
             // 
             this.panel_config.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
-            this.panel_config.Controls.Add(this.label8);
-            this.panel_config.Controls.Add(this.label7);
+            this.panel_config.Controls.Add(this.panel_scale);
             this.panel_config.Controls.Add(this.label6);
             this.panel_config.Controls.Add(this.label5);
             this.panel_config.Controls.Add(this.label4);
@@ -274,19 +278,94 @@ namespace Conversor {
             this.panel_config.Controls.Add(this.txt_output);
             this.panel_config.Controls.Add(this.txt_ext);
             this.panel_config.Controls.Add(this.btn_sub);
-            this.panel_config.Controls.Add(this.label1);
             this.panel_config.Controls.Add(this.panel10);
             this.panel_config.Controls.Add(this.panel5);
             this.panel_config.Controls.Add(this.txt_sub);
             this.panel_config.Controls.Add(this.txt_prefix);
             this.panel_config.Controls.Add(this.cbx_scale);
             this.panel_config.Controls.Add(this.panel6);
-            this.panel_config.Controls.Add(this.txt_scaleH);
-            this.panel_config.Controls.Add(this.panel7);
-            this.panel_config.Controls.Add(this.panel8);
-            this.panel_config.Controls.Add(this.txt_scaleW);
             resources.ApplyResources(this.panel_config, "panel_config");
             this.panel_config.Name = "panel_config";
+            // 
+            // panel_scale
+            // 
+            this.panel_scale.Controls.Add(this.label8);
+            this.panel_scale.Controls.Add(this.label1);
+            this.panel_scale.Controls.Add(this.label7);
+            this.panel_scale.Controls.Add(this.txt_scaleW);
+            this.panel_scale.Controls.Add(this.panel8);
+            this.panel_scale.Controls.Add(this.panel7);
+            this.panel_scale.Controls.Add(this.txt_scaleH);
+            resources.ApplyResources(this.panel_scale, "panel_scale");
+            this.panel_scale.Name = "panel_scale";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label8.Name = "label8";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label7.Name = "label7";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label6.Name = "label6";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label5.Name = "label5";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label4.Name = "label4";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label3.Name = "label3";
+            // 
+            // panel_configHeader
+            // 
+            this.panel_configHeader.Controls.Add(this.label2);
+            this.panel_configHeader.Controls.Add(this.radio_geral);
+            this.panel_configHeader.Controls.Add(this.radio_indv);
+            resources.ApplyResources(this.panel_configHeader, "panel_configHeader");
+            this.panel_configHeader.Name = "panel_configHeader";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label2.Name = "label2";
+            // 
+            // radio_geral
+            // 
+            resources.ApplyResources(this.radio_geral, "radio_geral");
+            this.radio_geral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio_geral.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
+            this.radio_geral.Name = "radio_geral";
+            this.radio_geral.TabStop = true;
+            this.radio_geral.UseVisualStyleBackColor = true;
+            // 
+            // radio_indv
+            // 
+            resources.ApplyResources(this.radio_indv, "radio_indv");
+            this.radio_indv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio_indv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
+            this.radio_indv.Name = "radio_indv";
+            this.radio_indv.TabStop = true;
+            this.radio_indv.UseVisualStyleBackColor = true;
             // 
             // btn_output
             // 
@@ -317,12 +396,12 @@ namespace Conversor {
             // 
             // input
             // 
-            this.input.FileName = "Abrir arquivos";
             this.input.Multiselect = true;
+            resources.ApplyResources(this.input, "input");
             // 
             // output
             // 
-            this.output.FileName = "Pasta de saída";
+            resources.ApplyResources(this.output, "output");
             // 
             // list_files
             // 
@@ -346,38 +425,7 @@ namespace Conversor {
             this.btn_remove.IconSize = 38;
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.UseVisualStyleBackColor = false;
-            // 
-            // panel_configHeader
-            // 
-            this.panel_configHeader.Controls.Add(this.label2);
-            this.panel_configHeader.Controls.Add(this.radio_geral);
-            this.panel_configHeader.Controls.Add(this.radio_indv);
-            resources.ApplyResources(this.panel_configHeader, "panel_configHeader");
-            this.panel_configHeader.Name = "panel_configHeader";
-            // 
-            // radio_indv
-            // 
-            resources.ApplyResources(this.radio_indv, "radio_indv");
-            this.radio_indv.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radio_indv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
-            this.radio_indv.Name = "radio_indv";
-            this.radio_indv.TabStop = true;
-            this.radio_indv.UseVisualStyleBackColor = true;
-            // 
-            // radio_geral
-            // 
-            resources.ApplyResources(this.radio_geral, "radio_geral");
-            this.radio_geral.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radio_geral.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
-            this.radio_geral.Name = "radio_geral";
-            this.radio_geral.TabStop = true;
-            this.radio_geral.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
-            this.label2.Name = "label2";
+            this.btn_remove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // panel_process
             // 
@@ -398,41 +446,9 @@ namespace Conversor {
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // open_subtitle
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
-            this.label3.Name = "label3";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
-            this.label4.Name = "label4";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
-            this.label5.Name = "label5";
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
-            this.label6.Name = "label6";
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
-            this.label7.Name = "label7";
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
-            this.label8.Name = "label8";
+            resources.ApplyResources(this.open_subtitle, "open_subtitle");
             // 
             // form_main
             // 
@@ -457,6 +473,8 @@ namespace Conversor {
             this.panel_progress.PerformLayout();
             this.panel_config.ResumeLayout(false);
             this.panel_config.PerformLayout();
+            this.panel_scale.ResumeLayout(false);
+            this.panel_scale.PerformLayout();
             this.panel_configHeader.ResumeLayout(false);
             this.panel_configHeader.PerformLayout();
             this.panel_process.ResumeLayout(false);
@@ -510,6 +528,8 @@ namespace Conversor {
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel_scale;
+        private System.Windows.Forms.OpenFileDialog open_subtitle;
     }
 }
 
