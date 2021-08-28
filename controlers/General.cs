@@ -27,9 +27,19 @@ namespace Conversor.Controlers {
             foreach(string file in files) {
                 MediaFile mediaFile = new MediaFile(file);
                 fileList.Add(mediaFile);
-                list.Items.Add(mediaFile.Name);
-                listMap.Add(mediaFile.Name, mediaFile);
+                list.Items.Add(mediaFile.FullName);
+                listMap.Add(mediaFile.FullName, mediaFile);
             }
         }
+
+        public void clearFileList(ref ListBox list) {
+            list.Items.Clear();
+            fileList.Clear();
+            listMap.Clear();
+            outputSettings.Clear();
+        }
+
+        public MediaFile getListItem(string fileName)
+            => listMap.ContainsKey(fileName) ? listMap[fileName] : null;
     }
 }

@@ -129,7 +129,7 @@
     <value>12, 12</value>
   </data>
   <data name="btn_searchFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 42</value>
+    <value>152, 42</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btn_searchFiles.TabIndex" type="System.Int32, mscorlib">
@@ -145,7 +145,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_searchFiles.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 60</value>
@@ -166,7 +166,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>482, 60</value>
@@ -187,7 +187,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 261</value>
@@ -208,7 +208,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 60</value>
@@ -229,19 +229,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="txt_ext.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Rounded MT Bold, 15.75pt</value>
   </data>
   <data name="txt_ext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 3</value>
+    <value>0, 38</value>
   </data>
   <data name="txt_ext.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 25</value>
   </data>
   <data name="txt_ext.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>5</value>
   </data>
   <data name="txt_ext.Text" xml:space="preserve">
     <value>Extenção</value>
@@ -256,10 +256,10 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;txt_ext.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 30</value>
+    <value>0, 65</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 2</value>
@@ -277,46 +277,46 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="btn_delete.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btn_delete.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btn_delete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial Rounded MT Bold, 12pt</value>
-  </data>
-  <data name="btn_delete.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="btn_delete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btn_delete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 12</value>
-  </data>
-  <data name="btn_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 42</value>
-  </data>
-  <data name="btn_delete.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;btn_delete.Name" xml:space="preserve">
-    <value>btn_delete</value>
+  <data name="btn_clear.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;btn_delete.Type" xml:space="preserve">
+  <data name="btn_clear.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_clear.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 12pt</value>
+  </data>
+  <data name="btn_clear.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btn_clear.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_clear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>332, 12</value>
+  </data>
+  <data name="btn_clear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 42</value>
+  </data>
+  <data name="btn_clear.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btn_clear.Name" xml:space="preserve">
+    <value>btn_clear</value>
+  </data>
+  <data name="&gt;&gt;btn_clear.Type" xml:space="preserve">
     <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;btn_delete.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btn_clear.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btn_delete.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;btn_clear.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 71</value>
+    <value>0, 106</value>
   </data>
   <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 2</value>
@@ -334,19 +334,19 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;panel6.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="txt_prefix.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Rounded MT Bold, 15.75pt</value>
   </data>
   <data name="txt_prefix.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 44</value>
+    <value>0, 79</value>
   </data>
   <data name="txt_prefix.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 25</value>
   </data>
   <data name="txt_prefix.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="txt_prefix.Text" xml:space="preserve">
     <value>Prefixo (opcional)</value>
@@ -361,10 +361,10 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;txt_prefix.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="panel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>377, 30</value>
+    <value>377, 65</value>
   </data>
   <data name="panel7.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 2</value>
@@ -382,7 +382,7 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;panel7.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="txt_scaleH.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -391,13 +391,13 @@
     <value>Arial Rounded MT Bold, 15.75pt</value>
   </data>
   <data name="txt_scaleH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>377, 3</value>
+    <value>377, 38</value>
   </data>
   <data name="txt_scaleH.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 25</value>
   </data>
   <data name="txt_scaleH.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>8</value>
   </data>
   <data name="txt_scaleH.Text" xml:space="preserve">
     <value>Altura</value>
@@ -412,10 +412,10 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;txt_scaleH.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="panel8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>241, 30</value>
+    <value>241, 65</value>
   </data>
   <data name="panel8.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 2</value>
@@ -433,7 +433,7 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;panel8.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="txt_scaleW.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -442,13 +442,13 @@
     <value>Arial Rounded MT Bold, 15.75pt</value>
   </data>
   <data name="txt_scaleW.Location" type="System.Drawing.Point, System.Drawing">
-    <value>241, 3</value>
+    <value>241, 38</value>
   </data>
   <data name="txt_scaleW.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 25</value>
   </data>
   <data name="txt_scaleW.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>7</value>
   </data>
   <data name="txt_scaleW.Text" xml:space="preserve">
     <value>Largura</value>
@@ -466,7 +466,7 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;txt_scaleW.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -475,7 +475,7 @@
     <value>Arial Rounded MT Bold, 20.25pt</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 2</value>
+    <value>342, 37</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 32</value>
@@ -496,7 +496,7 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="progressBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 31</value>
@@ -589,7 +589,7 @@
     <value>False</value>
   </data>
   <data name="panel_progress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 473</value>
+    <value>12, 511</value>
   </data>
   <data name="panel_progress.Size" type="System.Drawing.Size, System.Drawing">
     <value>472, 72</value>
@@ -607,19 +607,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel_progress.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="cbx_scale.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="cbx_scale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>220, 12</value>
+    <value>220, 47</value>
   </data>
   <data name="cbx_scale.Size" type="System.Drawing.Size, System.Drawing">
     <value>15, 14</value>
   </data>
   <data name="cbx_scale.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;cbx_scale.Name" xml:space="preserve">
     <value>cbx_scale</value>
@@ -631,10 +631,10 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;cbx_scale.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="panel10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>279, 71</value>
+    <value>279, 106</value>
   </data>
   <data name="panel10.Size" type="System.Drawing.Size, System.Drawing">
     <value>193, 2</value>
@@ -652,13 +652,13 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;panel10.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="txt_sub.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Rounded MT Bold, 15.75pt</value>
   </data>
   <data name="txt_sub.Location" type="System.Drawing.Point, System.Drawing">
-    <value>279, 44</value>
+    <value>279, 79</value>
   </data>
   <data name="txt_sub.Size" type="System.Drawing.Size, System.Drawing">
     <value>193, 25</value>
@@ -679,7 +679,10 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;txt_sub.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
+  </data>
+  <data name="btn_process.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="btn_process.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -694,13 +697,13 @@
     <value>NoControl</value>
   </data>
   <data name="btn_process.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 392</value>
+    <value>199, 0</value>
   </data>
   <data name="btn_process.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 78</value>
   </data>
   <data name="btn_process.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;btn_process.Name" xml:space="preserve">
     <value>btn_process</value>
@@ -709,22 +712,22 @@
     <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btn_process.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel_process</value>
   </data>
   <data name="&gt;&gt;btn_process.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="btn_sub.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="btn_sub.Location" type="System.Drawing.Point, System.Drawing">
-    <value>241, 48</value>
+    <value>241, 83</value>
   </data>
   <data name="btn_sub.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 29</value>
   </data>
   <data name="btn_sub.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
+    <value>10</value>
   </data>
   <data name="&gt;&gt;btn_sub.Name" xml:space="preserve">
     <value>btn_sub</value>
@@ -736,22 +739,19 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;btn_sub.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
-  <data name="btn_output.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="&gt;&gt;panel_configHeader.Name" xml:space="preserve">
+    <value>panel_configHeader</value>
   </data>
-  <data name="btn_output.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;panel_configHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btn_output.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 89</value>
+  <data name="&gt;&gt;panel_configHeader.Parent" xml:space="preserve">
+    <value>panel_config</value>
   </data>
-  <data name="btn_output.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 29</value>
-  </data>
-  <data name="btn_output.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
+  <data name="&gt;&gt;panel_configHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;btn_output.Name" xml:space="preserve">
     <value>btn_output</value>
@@ -763,10 +763,85 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;btn_output.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel9.Name" xml:space="preserve">
+    <value>panel9</value>
+  </data>
+  <data name="&gt;&gt;panel9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel9.Parent" xml:space="preserve">
+    <value>panel_config</value>
+  </data>
+  <data name="&gt;&gt;panel9.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txt_output.Name" xml:space="preserve">
+    <value>txt_output</value>
+  </data>
+  <data name="&gt;&gt;txt_output.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txt_output.Parent" xml:space="preserve">
+    <value>panel_config</value>
+  </data>
+  <data name="&gt;&gt;txt_output.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="panel_config.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panel_config.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 269</value>
+  </data>
+  <data name="panel_config.Size" type="System.Drawing.Size, System.Drawing">
+    <value>472, 151</value>
+  </data>
+  <data name="panel_config.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;panel_config.Name" xml:space="preserve">
+    <value>panel_config</value>
+  </data>
+  <data name="&gt;&gt;panel_config.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_config.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_config.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btn_output.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_output.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_output.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 124</value>
+  </data>
+  <data name="btn_output.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 29</value>
+  </data>
+  <data name="btn_output.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;btn_output.Name" xml:space="preserve">
+    <value>btn_output</value>
+  </data>
+  <data name="&gt;&gt;btn_output.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btn_output.Parent" xml:space="preserve">
+    <value>panel_config</value>
+  </data>
+  <data name="&gt;&gt;btn_output.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="panel9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>38, 112</value>
+    <value>38, 147</value>
   </data>
   <data name="panel9.Size" type="System.Drawing.Size, System.Drawing">
     <value>434, 2</value>
@@ -784,13 +859,13 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;panel9.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="txt_output.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Rounded MT Bold, 15.75pt</value>
   </data>
   <data name="txt_output.Location" type="System.Drawing.Point, System.Drawing">
-    <value>38, 85</value>
+    <value>38, 120</value>
   </data>
   <data name="txt_output.Size" type="System.Drawing.Size, System.Drawing">
     <value>434, 25</value>
@@ -811,31 +886,7 @@
     <value>panel_config</value>
   </data>
   <data name="&gt;&gt;txt_output.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="panel_config.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="panel_config.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 269</value>
-  </data>
-  <data name="panel_config.Size" type="System.Drawing.Size, System.Drawing">
-    <value>472, 120</value>
-  </data>
-  <data name="panel_config.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;panel_config.Name" xml:space="preserve">
-    <value>panel_config</value>
-  </data>
-  <data name="&gt;&gt;panel_config.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel_config.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel_config.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <metadata name="input.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -856,7 +907,7 @@
     <value>472, 198</value>
   </data>
   <data name="list_files.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;list_files.Name" xml:space="preserve">
     <value>list_files</value>
@@ -868,7 +919,253 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;list_files.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
+  </data>
+  <data name="btn_remove.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btn_remove.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_remove.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 12pt</value>
+  </data>
+  <data name="btn_remove.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btn_remove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_remove.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 12</value>
+  </data>
+  <data name="btn_remove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 42</value>
+  </data>
+  <data name="btn_remove.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btn_remove.Name" xml:space="preserve">
+    <value>btn_remove</value>
+  </data>
+  <data name="&gt;&gt;btn_remove.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btn_remove.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_remove.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>panel_configHeader</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;radio_geral.Name" xml:space="preserve">
+    <value>radio_geral</value>
+  </data>
+  <data name="&gt;&gt;radio_geral.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radio_geral.Parent" xml:space="preserve">
+    <value>panel_configHeader</value>
+  </data>
+  <data name="&gt;&gt;radio_geral.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;radio_indv.Name" xml:space="preserve">
+    <value>radio_indv</value>
+  </data>
+  <data name="&gt;&gt;radio_indv.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radio_indv.Parent" xml:space="preserve">
+    <value>panel_configHeader</value>
+  </data>
+  <data name="&gt;&gt;radio_indv.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panel_configHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel_configHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>472, 32</value>
+  </data>
+  <data name="panel_configHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;panel_configHeader.Name" xml:space="preserve">
+    <value>panel_configHeader</value>
+  </data>
+  <data name="&gt;&gt;panel_configHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_configHeader.Parent" xml:space="preserve">
+    <value>panel_config</value>
+  </data>
+  <data name="&gt;&gt;panel_configHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radio_indv.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radio_indv.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 14.25pt</value>
+  </data>
+  <data name="radio_indv.Location" type="System.Drawing.Point, System.Drawing">
+    <value>225, 3</value>
+  </data>
+  <data name="radio_indv.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 26</value>
+  </data>
+  <data name="radio_indv.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="radio_indv.Text" xml:space="preserve">
+    <value>Individuais</value>
+  </data>
+  <data name="&gt;&gt;radio_indv.Name" xml:space="preserve">
+    <value>radio_indv</value>
+  </data>
+  <data name="&gt;&gt;radio_indv.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radio_indv.Parent" xml:space="preserve">
+    <value>panel_configHeader</value>
+  </data>
+  <data name="&gt;&gt;radio_indv.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="radio_geral.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radio_geral.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 14.25pt</value>
+  </data>
+  <data name="radio_geral.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radio_geral.Location" type="System.Drawing.Point, System.Drawing">
+    <value>357, 3</value>
+  </data>
+  <data name="radio_geral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 26</value>
+  </data>
+  <data name="radio_geral.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="radio_geral.Text" xml:space="preserve">
+    <value>Gerais</value>
+  </data>
+  <data name="&gt;&gt;radio_geral.Name" xml:space="preserve">
+    <value>radio_geral</value>
+  </data>
+  <data name="&gt;&gt;radio_geral.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radio_geral.Parent" xml:space="preserve">
+    <value>panel_configHeader</value>
+  </data>
+  <data name="&gt;&gt;radio_geral.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 14.25pt</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 5</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Usar configurações</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>panel_configHeader</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;iconButton1.Name" xml:space="preserve">
+    <value>iconButton1</value>
+  </data>
+  <data name="&gt;&gt;iconButton1.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;iconButton1.Parent" xml:space="preserve">
+    <value>panel_process</value>
+  </data>
+  <data name="&gt;&gt;iconButton1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel_process.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 426</value>
+  </data>
+  <data name="panel_process.Size" type="System.Drawing.Size, System.Drawing">
+    <value>472, 78</value>
+  </data>
+  <data name="panel_process.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;panel_process.Name" xml:space="preserve">
+    <value>panel_process</value>
+  </data>
+  <data name="&gt;&gt;panel_process.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_process.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_process.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="iconButton1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="iconButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="iconButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 46</value>
+  </data>
+  <data name="iconButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 29</value>
+  </data>
+  <data name="iconButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;iconButton1.Name" xml:space="preserve">
+    <value>iconButton1</value>
+  </data>
+  <data name="&gt;&gt;iconButton1.Type" xml:space="preserve">
+    <value>FontAwesome.Sharp.IconButton, FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;iconButton1.Parent" xml:space="preserve">
+    <value>panel_process</value>
+  </data>
+  <data name="&gt;&gt;iconButton1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -880,7 +1177,10 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>496, 557</value>
+    <value>496, 595</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

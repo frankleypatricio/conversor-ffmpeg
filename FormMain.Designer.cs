@@ -32,7 +32,7 @@ namespace Conversor {
             this.panel4 = new System.Windows.Forms.Panel();
             this.txt_ext = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btn_delete = new FontAwesome.Sharp.IconButton();
+            this.btn_clear = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txt_prefix = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -56,8 +56,17 @@ namespace Conversor {
             this.input = new System.Windows.Forms.OpenFileDialog();
             this.output = new System.Windows.Forms.SaveFileDialog();
             this.list_files = new System.Windows.Forms.ListBox();
+            this.btn_remove = new FontAwesome.Sharp.IconButton();
+            this.panel_configHeader = new System.Windows.Forms.Panel();
+            this.radio_indv = new System.Windows.Forms.RadioButton();
+            this.radio_geral = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel_process = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel_progress.SuspendLayout();
             this.panel_config.SuspendLayout();
+            this.panel_configHeader.SuspendLayout();
+            this.panel_process.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_searchFiles
@@ -111,18 +120,19 @@ namespace Conversor {
             resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
             // 
-            // btn_delete
+            // btn_clear
             // 
-            this.btn_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.btn_delete.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.btn_delete, "btn_delete");
-            this.btn_delete.FlatAppearance.BorderSize = 0;
-            this.btn_delete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btn_delete.IconColor = System.Drawing.Color.White;
-            this.btn_delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_delete.IconSize = 38;
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
+            this.btn_clear.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.btn_clear, "btn_clear");
+            this.btn_clear.FlatAppearance.BorderSize = 0;
+            this.btn_clear.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btn_clear.IconColor = System.Drawing.Color.White;
+            this.btn_clear.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_clear.IconSize = 40;
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.UseVisualStyleBackColor = false;
+            this.btn_clear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // panel6
             // 
@@ -220,10 +230,10 @@ namespace Conversor {
             // 
             // btn_process
             // 
-            this.btn_process.BackColor = System.Drawing.Color.Transparent;
+            this.btn_process.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
             this.btn_process.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_process.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.btn_process, "btn_process");
+            this.btn_process.FlatAppearance.BorderSize = 0;
             this.btn_process.IconChar = FontAwesome.Sharp.IconChar.PlayCircle;
             this.btn_process.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(203)))), ((int)(((byte)(122)))));
             this.btn_process.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -246,6 +256,7 @@ namespace Conversor {
             // panel_config
             // 
             this.panel_config.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
+            this.panel_config.Controls.Add(this.panel_configHeader);
             this.panel_config.Controls.Add(this.btn_output);
             this.panel_config.Controls.Add(this.panel9);
             this.panel_config.Controls.Add(this.txt_output);
@@ -309,16 +320,82 @@ namespace Conversor {
             this.list_files.ForeColor = System.Drawing.Color.White;
             this.list_files.FormattingEnabled = true;
             this.list_files.Name = "list_files";
+            this.list_files.SelectedIndexChanged += new System.EventHandler(this.list_files_SelectedIndexChanged);
+            // 
+            // btn_remove
+            // 
+            this.btn_remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.btn_remove.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.btn_remove, "btn_remove");
+            this.btn_remove.FlatAppearance.BorderSize = 0;
+            this.btn_remove.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btn_remove.IconColor = System.Drawing.Color.White;
+            this.btn_remove.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_remove.IconSize = 38;
+            this.btn_remove.Name = "btn_remove";
+            this.btn_remove.UseVisualStyleBackColor = false;
+            // 
+            // panel_configHeader
+            // 
+            this.panel_configHeader.Controls.Add(this.label2);
+            this.panel_configHeader.Controls.Add(this.radio_geral);
+            this.panel_configHeader.Controls.Add(this.radio_indv);
+            resources.ApplyResources(this.panel_configHeader, "panel_configHeader");
+            this.panel_configHeader.Name = "panel_configHeader";
+            // 
+            // radio_indv
+            // 
+            resources.ApplyResources(this.radio_indv, "radio_indv");
+            this.radio_indv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio_indv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
+            this.radio_indv.Name = "radio_indv";
+            this.radio_indv.TabStop = true;
+            this.radio_indv.UseVisualStyleBackColor = true;
+            // 
+            // radio_geral
+            // 
+            resources.ApplyResources(this.radio_geral, "radio_geral");
+            this.radio_geral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio_geral.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
+            this.radio_geral.Name = "radio_geral";
+            this.radio_geral.TabStop = true;
+            this.radio_geral.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label2.Name = "label2";
+            // 
+            // panel_process
+            // 
+            this.panel_process.Controls.Add(this.iconButton1);
+            this.panel_process.Controls.Add(this.btn_process);
+            resources.ApplyResources(this.panel_process, "panel_process");
+            this.panel_process.Name = "panel_process";
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.iconButton1, "iconButton1");
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.InfoCircle;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 35;
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // form_main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
+            this.Controls.Add(this.panel_process);
+            this.Controls.Add(this.btn_remove);
             this.Controls.Add(this.panel_progress);
             this.Controls.Add(this.panel_config);
-            this.Controls.Add(this.btn_process);
-            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -332,6 +409,9 @@ namespace Conversor {
             this.panel_progress.PerformLayout();
             this.panel_config.ResumeLayout(false);
             this.panel_config.PerformLayout();
+            this.panel_configHeader.ResumeLayout(false);
+            this.panel_configHeader.PerformLayout();
+            this.panel_process.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -345,7 +425,7 @@ namespace Conversor {
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txt_ext;
         private System.Windows.Forms.Panel panel5;
-        private FontAwesome.Sharp.IconButton btn_delete;
+        private FontAwesome.Sharp.IconButton btn_clear;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox txt_prefix;
         private System.Windows.Forms.Panel panel7;
@@ -369,6 +449,13 @@ namespace Conversor {
         private System.Windows.Forms.OpenFileDialog input;
         private System.Windows.Forms.SaveFileDialog output;
         private System.Windows.Forms.ListBox list_files;
+        private FontAwesome.Sharp.IconButton btn_remove;
+        private System.Windows.Forms.Panel panel_configHeader;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton radio_geral;
+        private System.Windows.Forms.RadioButton radio_indv;
+        private System.Windows.Forms.Panel panel_process;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
 
