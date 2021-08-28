@@ -63,6 +63,12 @@ namespace Conversor {
             this.label2 = new System.Windows.Forms.Label();
             this.panel_process = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel_progress.SuspendLayout();
             this.panel_config.SuspendLayout();
             this.panel_configHeader.SuspendLayout();
@@ -256,6 +262,12 @@ namespace Conversor {
             // panel_config
             // 
             this.panel_config.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
+            this.panel_config.Controls.Add(this.label8);
+            this.panel_config.Controls.Add(this.label7);
+            this.panel_config.Controls.Add(this.label6);
+            this.panel_config.Controls.Add(this.label5);
+            this.panel_config.Controls.Add(this.label4);
+            this.panel_config.Controls.Add(this.label3);
             this.panel_config.Controls.Add(this.panel_configHeader);
             this.panel_config.Controls.Add(this.btn_output);
             this.panel_config.Controls.Add(this.panel9);
@@ -386,6 +398,42 @@ namespace Conversor {
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label3.Name = "label3";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label4.Name = "label4";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label5.Name = "label5";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label6.Name = "label6";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label7.Name = "label7";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label8.Name = "label8";
+            // 
             // form_main
             // 
             resources.ApplyResources(this, "$this");
@@ -456,6 +504,12 @@ namespace Conversor {
         private System.Windows.Forms.RadioButton radio_indv;
         private System.Windows.Forms.Panel panel_process;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }
 
