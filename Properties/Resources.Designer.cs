@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace conversor_ffmpeg.Properties {
+namespace Conversor.Properties {
     /// <summary>
     ///   Uma classe de recurso fortemente tipados, para pesquisar cadeias de caracteres localizadas etc.
     /// </summary>

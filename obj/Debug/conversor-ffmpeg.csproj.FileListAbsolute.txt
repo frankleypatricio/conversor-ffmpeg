@@ -9,4 +9,4 @@ D:\htdocs\Projetos no Visual Studio\C#\conversor-ffmpeg\conversor-ffmpeg\obj\Deb
 D:\htdocs\Projetos no Visual Studio\C#\conversor-ffmpeg\conversor-ffmpeg\obj\Debug\conversor-ffmpeg.csproj.CopyComplete
 D:\htdocs\Projetos no Visual Studio\C#\conversor-ffmpeg\conversor-ffmpeg\obj\Debug\conversor-ffmpeg.exe
 D:\htdocs\Projetos no Visual Studio\C#\conversor-ffmpeg\conversor-ffmpeg\obj\Debug\conversor-ffmpeg.pdb
-D:\htdocs\Projetos no Visual Studio\C#\conversor-ffmpeg\conversor-ffmpeg\obj\Debug\conversor_ffmpeg.form_main.resources
+D:\htdocs\Projetos no Visual Studio\C#\conversor-ffmpeg\conversor-ffmpeg\obj\Debug\Conversor.form_main.resources
