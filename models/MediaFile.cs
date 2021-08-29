@@ -35,11 +35,11 @@ namespace Conversor.Models {
                 extension=Util.removeString(".", info.Extension);
                 path=info.DirectoryName;
                 this.fullPath=fullPath;
-                outputSettings=new OutputSettings(false, extension);
+                outputSettings=new OutputSettings(Enums.Setting.INDIVIDUAL, extension);
             }
         }
 
-        public void setConfigs(string extension, string[] scale, string prefix, string subtitle, string path, bool isGeneral)
-            => outputSettings=new OutputSettings(extension, scale, prefix, subtitle, path, isGeneral);
+        public void setConfigs(string extension, bool changeScale, string prefix, string subtitle, string path, Enums.Setting type, string[] scale)
+            => outputSettings=new OutputSettings(extension, changeScale, prefix, subtitle, path, type, scale);
     }
 }

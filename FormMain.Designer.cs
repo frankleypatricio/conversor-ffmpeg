@@ -70,6 +70,7 @@ namespace Conversor {
             this.panel_process = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.open_subtitle = new System.Windows.Forms.OpenFileDialog();
+            this.folder = new System.Windows.Forms.FolderBrowserDialog();
             this.panel_progress.SuspendLayout();
             this.panel_config.SuspendLayout();
             this.panel_scale.SuspendLayout();
@@ -121,6 +122,8 @@ namespace Conversor {
             resources.ApplyResources(this.txt_ext, "txt_ext");
             this.txt_ext.ForeColor = System.Drawing.Color.White;
             this.txt_ext.Name = "txt_ext";
+            this.txt_ext.Tag = "ext";
+            this.txt_ext.Leave += new System.EventHandler(this.TextBox_FocusLeave);
             // 
             // panel5
             // 
@@ -155,6 +158,8 @@ namespace Conversor {
             resources.ApplyResources(this.txt_prefix, "txt_prefix");
             this.txt_prefix.ForeColor = System.Drawing.Color.White;
             this.txt_prefix.Name = "txt_prefix";
+            this.txt_prefix.Tag = "prefix";
+            this.txt_prefix.Leave += new System.EventHandler(this.TextBox_FocusLeave);
             // 
             // panel7
             // 
@@ -169,6 +174,8 @@ namespace Conversor {
             resources.ApplyResources(this.txt_scaleH, "txt_scaleH");
             this.txt_scaleH.ForeColor = System.Drawing.Color.White;
             this.txt_scaleH.Name = "txt_scaleH";
+            this.txt_scaleH.Tag = "scaleH";
+            this.txt_scaleH.Leave += new System.EventHandler(this.TextBox_FocusLeave);
             // 
             // panel8
             // 
@@ -183,6 +190,8 @@ namespace Conversor {
             resources.ApplyResources(this.txt_scaleW, "txt_scaleW");
             this.txt_scaleW.ForeColor = System.Drawing.Color.White;
             this.txt_scaleW.Name = "txt_scaleW";
+            this.txt_scaleW.Tag = "scaleW";
+            this.txt_scaleW.Leave += new System.EventHandler(this.TextBox_FocusLeave);
             // 
             // label1
             // 
@@ -236,6 +245,7 @@ namespace Conversor {
             this.txt_sub.ForeColor = System.Drawing.Color.White;
             this.txt_sub.Name = "txt_sub";
             this.txt_sub.ReadOnly = true;
+            this.txt_sub.Tag = "sub";
             // 
             // btn_process
             // 
@@ -355,7 +365,9 @@ namespace Conversor {
             this.radio_geral.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
             this.radio_geral.Name = "radio_geral";
             this.radio_geral.TabStop = true;
+            this.radio_geral.Tag = "1";
             this.radio_geral.UseVisualStyleBackColor = true;
+            this.radio_geral.CheckedChanged += new System.EventHandler(this.RadioSettings_CheckedChanged);
             // 
             // radio_indv
             // 
@@ -364,7 +376,9 @@ namespace Conversor {
             this.radio_indv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
             this.radio_indv.Name = "radio_indv";
             this.radio_indv.TabStop = true;
+            this.radio_indv.Tag = "0";
             this.radio_indv.UseVisualStyleBackColor = true;
+            this.radio_indv.CheckedChanged += new System.EventHandler(this.RadioSettings_CheckedChanged);
             // 
             // btn_output
             // 
@@ -377,6 +391,7 @@ namespace Conversor {
             this.btn_output.IconSize = 37;
             this.btn_output.Name = "btn_output";
             this.btn_output.UseVisualStyleBackColor = true;
+            this.btn_output.Click += new System.EventHandler(this.btnOutput_Click);
             // 
             // panel9
             // 
@@ -392,6 +407,7 @@ namespace Conversor {
             this.txt_output.ForeColor = System.Drawing.Color.White;
             this.txt_output.Name = "txt_output";
             this.txt_output.ReadOnly = true;
+            this.txt_output.Tag = "output";
             // 
             // input
             // 
@@ -517,6 +533,7 @@ namespace Conversor {
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel_scale;
         private System.Windows.Forms.OpenFileDialog open_subtitle;
+        private System.Windows.Forms.FolderBrowserDialog folder;
     }
 }
 

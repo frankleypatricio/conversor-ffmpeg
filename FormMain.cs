@@ -5,13 +5,19 @@ using Conversor.Controlers;
 using Conversor.Helpers;
 using Conversor.Models;
 using Conversor.Components;
+using Conversor.Enums;
 
 namespace Conversor {
     public partial class form_main : Form {
-        private FileListBox fileList = new FileListBox();
-        private General general = new General();
-        private int selectedItem = -1;
-        
+        private FileListBox fileList = new FileListBox(); // Lista de arquivos
+        private General general = new General(); // Configurações gerais
+        private int selectedItem = -1; // Item selecionado na lista
+        private Setting setting = Setting.GENERAL; // Configurações selecionada
+
+        private OutputSettings UsedSettings { // Configs atualmente usadas baseada no RadioButton delas
+            get => setting==Setting.GENERAL ? general.OutputSettings : fileList.SelectedFile.OutputSettings;
+        }
+
         public form_main() {
             InitializeComponent();
             radio_geral.Checked=true;
@@ -58,25 +64,64 @@ namespace Conversor {
                 txt_sub.Text=Util.getFileName(open_subtitle.FileName);
         }
 
+        private void btnOutput_Click(object sender, EventArgs e) {
+            output.ShowDialog();
+            Console.WriteLine(output.FileName);
+            /*if(Util.checkDialogResult(output.ShowDialog()))
+                txt_sub.Text=Util.getFileName(open_subtitle.FileName);*/
+        }
+
         private void list_files_SelectedIndexChanged(object sender, EventArgs e) {
             selectedItem=fileList.SelectedIndex;
             bool haveItens = (fileList.Items.Count>0 && selectedItem>=0);
 
-            if(haveItens) {
+            if(haveItens && setting == Setting.INDIVIDUAL) {
                 MediaFile selected = fileList.SelectedFile;
-                if(selected!=null) updateConfigs(selected.OutputSettings);
+                if(selected!=null) updateSettings();
                 else {
                     cbx_scale.Checked=false;
                     Util.clearTextBox(new TextBox[] { txt_ext, txt_output, txt_prefix, txt_sub, txt_scaleW, txt_scaleH });
                 }
             }
-            setEditor(haveItens);
+
+            if(haveItens) setEditor(haveItens);
         }
 
         private void cbx_scale_CheckedChanged(object sender, EventArgs e) {
-            panel_scale.Enabled=cbx_scale.Checked;
+            UsedSettings.ChangeScale=panel_scale.Enabled=cbx_scale.Checked;
             if(!panel_scale.Enabled) {
                 Util.clearTextBox(new TextBox[]{ txt_scaleW, txt_scaleH });
+                UsedSettings.Scale=Util.EmptyScale;
+            }
+        }
+
+        private void RadioSettings_CheckedChanged(object sender, EventArgs e) {
+            RadioButton radio = (RadioButton)sender;
+            short tag = Convert.ToInt16(radio.Tag);
+            setting=tag==0 ? Setting.INDIVIDUAL : Setting.GENERAL;
+            updateSettings();
+        }
+
+        /* CASO DÊ PROBLEMA, TROCAR PRA AO ALTERAR TEXTO INVÉS DE PERDER O FOCO */
+        private void TextBox_FocusLeave(object sender, EventArgs e) {
+            TextBox value = (TextBox)sender;
+
+            switch(value.Tag.ToString()) {
+                case "ext": UsedSettings.Extension=value.Text; break;
+                case "prefix": UsedSettings.Prefix=value.Text; break;
+                case "scaleW": UsedSettings.Scale[0]=value.Text; break;
+                case "scaleH": UsedSettings.Scale[1]=value.Text; break;
+                
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, EventArgs e) {
+            TextBox value = (TextBox)sender;
+
+            switch(value.Tag.ToString()) {
+                case "sub": UsedSettings.Subtitle=value.Text; break;
+                case "output": UsedSettings.Path=value.Text; break;
+
             }
         }
 
@@ -87,13 +132,18 @@ namespace Conversor {
             fileList.SelectLastItem();
         }
 
-        private void updateConfigs(OutputSettings settings) {
-            txt_ext.Text=settings.Extension;
-            txt_prefix.Text=settings.Prefix;
-            txt_sub.Text=settings.Subtitle;
-            txt_output.Text=settings.Path;
-            txt_scaleW.Text=settings.Scale[0];
-            txt_scaleH.Text=settings.Scale[1];
+        private void updateSettings() {
+            txt_ext.Text=UsedSettings.Extension;
+            txt_prefix.Text=UsedSettings.Prefix;
+            txt_sub.Text=UsedSettings.Subtitle;
+            txt_output.Text=UsedSettings.Path;
+            setTxtScales(UsedSettings.ChangeScale ? UsedSettings.Scale : Util.EmptyScale);
+            cbx_scale.Checked=UsedSettings.ChangeScale;
+        }
+
+        private void setTxtScales(string[] scales) {
+            txt_scaleW.Text=scales[0];
+            txt_scaleH.Text=scales[1];
         }
 
         private void setEditor(bool enabled) {

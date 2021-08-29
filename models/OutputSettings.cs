@@ -1,15 +1,23 @@
-﻿namespace Conversor.Models {
+﻿using Conversor.Enums;
+using Conversor.Helpers;
+
+namespace Conversor.Models {
     class OutputSettings {
         private string extension="";
-        private string[] scale = new string[]{ "","" };
+        private bool changeScale = false;
+        private string[] scale = Util.EmptyScale;
         private string prefix="";
         private string subtitle="";
         private string path="";
-        private bool isGeneral; // Se é configurações gerais
+        private Setting type; // Se é configurações gerais ou individuais
 
         public string Extension {
             get { return extension; }
             set { extension=value; }
+        }
+        public bool ChangeScale {
+            get { return changeScale; }
+            set { changeScale=value; }
         }
         public string[] Scale {
             get { return scale; }
@@ -27,32 +35,43 @@
             get{return path;}
             set => path=value;
         }
-        public bool IsGeneral {
-            get => isGeneral;
+        public Setting Type {
+            get => type;
         }
 
-        public OutputSettings(bool isGeneral) => this.isGeneral=isGeneral;
+        public OutputSettings(Setting type) => this.type=type;
 
-        public OutputSettings(bool isGeneral, string extension) {
-            this.isGeneral=isGeneral;
+        public OutputSettings(Setting type, string extension) {
+            this.type=type;
             this.extension=extension;
         }
 
-        public OutputSettings(string extension, string[] scale, string prefix, string subtitle, string path, bool isGeneral) {
+        public OutputSettings(string extension, bool changeScale, string prefix, string subtitle, string path, Setting type, string[] scale = null) {
             this.extension=extension;
-            this.scale=scale;
+            this.changeScale=changeScale;
+            this.scale = (changeScale && scale!=null) ? scale : Util.EmptyScale;
             this.prefix=prefix;
             this.subtitle=subtitle;
             this.path=path;
-            this.isGeneral=isGeneral;
+            this.type=type;
         }
 
         public void Clear() {
             extension = "";
-            scale = new string[] { "", "" };
+            scale = Util.EmptyScale;
             prefix = "";
             subtitle = "";
             path = "";
+        }
+
+        override public string ToString() {
+            string toString = $"Extenção: {extension}\n";
+            toString+=$"Prefixo: {prefix}\n";
+            toString+=changeScale? $"Escala: {scale[0]}:{scale[1]}\n":"";
+            toString+=$"Subs: {subtitle}\n";
+            toString+=$"Pasta: {path}\n";
+            toString+=$"Tipo: {type}";
+            return toString;
         }
     }
 }

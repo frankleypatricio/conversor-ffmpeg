@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="controlers\FFmpeg.cs" />
     <Compile Include="controlers\General.cs" />
+    <Compile Include="enums\Setting.cs" />
     <Compile Include="exceptions\FileAlreadyOnList.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>

@@ -1,10 +1,12 @@
 ﻿using System.Windows.Forms;
 using System.IO;
-using System.Collections.Generic;
-using Conversor.Models;
 
 namespace Conversor.Helpers {
     class Util {
+        public static string[] EmptyScale {
+            get => new string[] { "", "" };
+        }
+
         public static bool checkDialogResult(DialogResult result)
             => result==DialogResult.OK | result==DialogResult.Yes;
 
