@@ -61,25 +61,25 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="components\FileListBox.cs">
+    <Compile Include="src\components\FileListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="controlers\FFmpeg.cs" />
-    <Compile Include="controlers\General.cs" />
-    <Compile Include="enums\Setting.cs" />
-    <Compile Include="exceptions\FileAlreadyOnList.cs" />
-    <Compile Include="FormMain.cs">
+    <Compile Include="src\controlers\FFmpeg.cs" />
+    <Compile Include="src\controlers\General.cs" />
+    <Compile Include="src\enums\Setting.cs" />
+    <Compile Include="src\exceptions\FileAlreadyOnList.cs" />
+    <Compile Include="src\views\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
+    <Compile Include="src\views\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="helpers\Util.cs" />
-    <Compile Include="models\OutputSettings.cs" />
-    <Compile Include="models\MediaFile.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="src\helpers\Util.cs" />
+    <Compile Include="src\models\OutputSettings.cs" />
+    <Compile Include="src\models\MediaFile.cs" />
+    <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormMain.resx">
+    <EmbeddedResource Include="src\views\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -106,7 +106,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="business\" />
+    <Folder Include="src\business\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
