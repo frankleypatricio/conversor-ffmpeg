@@ -66,7 +66,6 @@ namespace Conversor {
             this.txt_output = new System.Windows.Forms.TextBox();
             this.input = new System.Windows.Forms.OpenFileDialog();
             this.output = new System.Windows.Forms.SaveFileDialog();
-            this.list_files = new System.Windows.Forms.ListBox();
             this.btn_remove = new FontAwesome.Sharp.IconButton();
             this.panel_process = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -403,16 +402,6 @@ namespace Conversor {
             // 
             resources.ApplyResources(this.output, "output");
             // 
-            // list_files
-            // 
-            this.list_files.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
-            this.list_files.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.list_files, "list_files");
-            this.list_files.ForeColor = System.Drawing.Color.White;
-            this.list_files.FormattingEnabled = true;
-            this.list_files.Name = "list_files";
-            this.list_files.SelectedIndexChanged += new System.EventHandler(this.list_files_SelectedIndexChanged);
-            // 
             // btn_remove
             // 
             this.btn_remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
@@ -465,7 +454,6 @@ namespace Conversor {
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_searchFiles);
-            this.Controls.Add(this.list_files);
             this.ForeColor = System.Drawing.Color.White;
             this.MaximizeBox = false;
             this.Name = "form_main";
@@ -514,7 +502,6 @@ namespace Conversor {
         private System.Windows.Forms.TextBox txt_output;
         private System.Windows.Forms.OpenFileDialog input;
         private System.Windows.Forms.SaveFileDialog output;
-        private System.Windows.Forms.ListBox list_files;
         private FontAwesome.Sharp.IconButton btn_remove;
         private System.Windows.Forms.Panel panel_configHeader;
         private System.Windows.Forms.Label label2;

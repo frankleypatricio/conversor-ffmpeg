@@ -2,21 +2,33 @@
 using System.Collections.Generic;
 using Conversor.Models;
 
-namespace conversor_ffmpeg.components {
+namespace Conversor.Components {
     class FileListBox : ListBox {
-        private Dictionary<string, MediaFile> file = new Dictionary<string, MediaFile>();
+        private List<MediaFile> file = new List<MediaFile>();
+
         public MediaFile SelectedFile {
-            get => file[this.SelectedItem.ToString()];
+            get => file[SelectedIndex];
+        }
+
+        public FileListBox() : base() {}
+
+        public void SelectLastItem() => SelectedIndex=Items.Count-1;
+
+        public void AddFile(MediaFile mediafile) {
+            file.Add(mediafile);
+            Items.Add(mediafile.FullName);
+        }
+
+        public void RemoveFile(int index) {
+            int nextSelected = SelectedIndex;
+            file.RemoveAt(index);
+            Items.RemoveAt(index);
+            SelectedIndex= nextSelected<Items.Count ? nextSelected : Items.Count-1;
         }
 
         public void ClearAll() {
             file.Clear();
             this.Items.Clear();
-        }
-
-        public void AddFile(MediaFile mediafile) {
-            file.Add(mediafile.FullName, mediafile);
-            this.Items.Add(mediafile.FullName);
         }
     }
 }

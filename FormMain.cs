@@ -1,17 +1,32 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Conversor.Controlers;
 using Conversor.Helpers;
 using Conversor.Models;
+using Conversor.Components;
 
 namespace Conversor {
     public partial class form_main : Form {
+        private FileListBox fileList = new FileListBox();
         private General general = new General();
-        private string selectedItem = "";
+        private int selectedItem = -1;
         
         public form_main() {
             InitializeComponent();
             radio_geral.Checked=true;
+
+            // fileList
+            fileList.BackColor=Color.FromArgb(50, 56, 66);
+            fileList.BorderStyle=BorderStyle.None;
+            fileList.ForeColor=Color.White;
+            fileList.FormattingEnabled=true;
+            fileList.Name="list_files";
+            fileList.SelectedIndexChanged+=new EventHandler(this.list_files_SelectedIndexChanged);
+            fileList.Location=new Point(15, 64);
+            fileList.Size=new Size(466, 196);
+
+            this.Controls.Add(fileList);
         }
 
         /* EVENTS
@@ -26,16 +41,16 @@ namespace Conversor {
             DialogResult result = MessageBox.Show("Limpar lista de arquivos?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(!Util.checkDialogResult(result)) return;
 
-            list_files.SelectedIndex=-1;
-            general.clearFileList(ref list_files);
-            Util.clearTextBox(new TextBox[] { txt_ext, txt_output, txt_prefix, txt_sub, txt_scaleW, txt_scaleH });
+            cbx_scale.Checked=false;
+            fileList.SelectedIndex= -1;
+            general.clearFileList(ref fileList);
         }
 
         private void btnRemove_Click(object sender, EventArgs e) {
-            DialogResult result = MessageBox.Show(String.Format("Remover o seguinte item?\n   - {0}", list_files.SelectedItem), "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show(String.Format("Remover o seguinte item?\n   - {0}", fileList.SelectedItem), "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(!Util.checkDialogResult(result)) return;
 
-            general.removeFromFileList(selectedItem, ref list_files);
+            general.removeFromFileList(selectedItem, ref fileList);
         }
 
         private void btnSubtitle_Click(object sender, EventArgs e) {
@@ -44,14 +59,18 @@ namespace Conversor {
         }
 
         private void list_files_SelectedIndexChanged(object sender, EventArgs e) {
-            bool haveItens = (list_files.Items.Count>0 && list_files.SelectedIndex>=0);
+            selectedItem=fileList.SelectedIndex;
+            bool haveItens = (fileList.Items.Count>0 && selectedItem>=0);
+
             if(haveItens) {
-                selectedItem=list_files.SelectedItem.ToString();
-                MediaFile selected = general.getListItem(selectedItem);
+                MediaFile selected = fileList.SelectedFile;
                 if(selected!=null) updateConfigs(selected.OutputSettings);
-                else Util.clearTextBox(new TextBox[] { txt_ext, txt_output, txt_prefix, txt_sub, txt_scaleW, txt_scaleH });
+                else {
+                    cbx_scale.Checked=false;
+                    Util.clearTextBox(new TextBox[] { txt_ext, txt_output, txt_prefix, txt_sub, txt_scaleW, txt_scaleH });
+                }
             }
-            setButtons(haveItens);
+            setEditor(haveItens);
         }
 
         private void cbx_scale_CheckedChanged(object sender, EventArgs e) {
@@ -64,8 +83,8 @@ namespace Conversor {
         /* METHODS
          *************************/
         private void updateFileList(string[] files) {
-            general.addToFileList(files, ref list_files);
-            list_files.SelectedIndex=list_files.Items.Count-1;
+            general.addToFileList(files, ref fileList);
+            fileList.SelectLastItem();
         }
 
         private void updateConfigs(OutputSettings settings) {
@@ -77,11 +96,13 @@ namespace Conversor {
             txt_scaleH.Text=settings.Scale[1];
         }
 
-        private void setButtons(bool enabled) {
+        private void setEditor(bool enabled) {
             btn_remove.Enabled=
                 btn_clear.Enabled=
                     panel_config.Enabled=
                         btn_process.Enabled=enabled;
+
+            if(!enabled) Util.clearTextBox(new TextBox[] { txt_ext, txt_output, txt_prefix, txt_sub, txt_scaleW, txt_scaleH });
         }
     }
 }

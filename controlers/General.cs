@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using System.Windows.Forms;
 using Conversor.Models;
 using Conversor.Exceptions;
+using Conversor.Components;
 
 namespace Conversor.Controlers {
     class General {
-        private List<MediaFile> fileList;
-        private Dictionary<string, MediaFile> listMap;
+        /*private List<MediaFile> fileList;
+        private Dictionary<string, MediaFile> listMap;*/
         private OutputSettings outputSettings;
 
-        public List<MediaFile> FileList {
+        /*public List<MediaFile> FileList {
             get { return fileList; }
-        }
+        }*/
 
         public OutputSettings OutputSettings {
             get { return outputSettings; }
@@ -19,40 +19,30 @@ namespace Conversor.Controlers {
         }
 
         public General() {
-            fileList=new List<MediaFile>();
-            listMap=new Dictionary<string, MediaFile>();
+            /*fileList=new List<MediaFile>();
+            listMap=new Dictionary<string, MediaFile>();*/
             outputSettings=new OutputSettings(true);
         }
 
-        public void addToFileList(string[] files, ref ListBox list) {
+        public void addToFileList(string[] files, ref FileListBox list) {
             try {
-                foreach(string file in files) {
-                    MediaFile mediaFile = new MediaFile(file);
+                foreach(string path in files) {
+                    MediaFile file = new MediaFile(path);
 
-                    fileList.Add(mediaFile);
-                    list.Items.Add(mediaFile.FullPath);
-                    listMap.Add(mediaFile.FullPath, mediaFile);
+                    list.AddFile(file);
                 }
             } catch(FileAlreadyOnList e) {
                 // faliou
             }
         }
 
-        public void removeFromFileList(string fileName, ref ListBox list) {
-            if(!listMap.ContainsKey(fileName)) return;
-            fileList.Remove(listMap[fileName]);
-            listMap.Remove(fileName);
-            list.Items.Remove(fileName);
+        public void removeFromFileList(int index, ref FileListBox list) {
+            if(list.Items.Count > 0) list.RemoveFile(index);
         }
 
-        public void clearFileList(ref ListBox list) {
-            list.Items.Clear();
-            fileList.Clear();
-            listMap.Clear();
+        public void clearFileList(ref FileListBox list) {
+            list.ClearAll();
             outputSettings.Clear();
         }
-
-        public MediaFile getListItem(string fileName)
-            => listMap.ContainsKey(fileName) ? listMap[fileName] : null;
     }
 }

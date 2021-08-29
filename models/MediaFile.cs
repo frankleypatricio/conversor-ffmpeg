@@ -31,7 +31,7 @@ namespace Conversor.Models {
         public MediaFile(string fullPath) {
             FileInfo info = new FileInfo(fullPath);
             if(info.Exists) {
-                name=Util.getFileName(info.Name);
+                name=Util.removeExtension(info.Name);
                 extension=Util.removeString(".", info.Extension);
                 path=info.DirectoryName;
                 this.fullPath=fullPath;

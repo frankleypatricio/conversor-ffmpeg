@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="components\FileListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="controlers\FFmpeg.cs" />
     <Compile Include="controlers\General.cs" />
     <Compile Include="exceptions\FileAlreadyOnList.cs" />
