@@ -65,12 +65,12 @@ namespace Conversor {
             this.panel9 = new System.Windows.Forms.Panel();
             this.txt_output = new System.Windows.Forms.TextBox();
             this.input = new System.Windows.Forms.OpenFileDialog();
-            this.output = new System.Windows.Forms.SaveFileDialog();
             this.btn_remove = new FontAwesome.Sharp.IconButton();
             this.panel_process = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.open_subtitle = new System.Windows.Forms.OpenFileDialog();
-            this.folder = new System.Windows.Forms.FolderBrowserDialog();
+            this.btn_removeSub = new FontAwesome.Sharp.IconButton();
+            this.btn_removeOutput = new FontAwesome.Sharp.IconButton();
             this.panel_progress.SuspendLayout();
             this.panel_config.SuspendLayout();
             this.panel_scale.SuspendLayout();
@@ -276,20 +276,22 @@ namespace Conversor {
             // panel_config
             // 
             this.panel_config.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
-            this.panel_config.Controls.Add(this.panel_scale);
-            this.panel_config.Controls.Add(this.label6);
             this.panel_config.Controls.Add(this.label5);
-            this.panel_config.Controls.Add(this.label4);
-            this.panel_config.Controls.Add(this.label3);
-            this.panel_config.Controls.Add(this.panel_configHeader);
-            this.panel_config.Controls.Add(this.btn_output);
             this.panel_config.Controls.Add(this.panel9);
             this.panel_config.Controls.Add(this.txt_output);
+            this.panel_config.Controls.Add(this.btn_removeOutput);
+            this.panel_config.Controls.Add(this.label3);
+            this.panel_config.Controls.Add(this.panel10);
+            this.panel_config.Controls.Add(this.txt_sub);
+            this.panel_config.Controls.Add(this.btn_removeSub);
+            this.panel_config.Controls.Add(this.panel_scale);
+            this.panel_config.Controls.Add(this.label6);
+            this.panel_config.Controls.Add(this.label4);
+            this.panel_config.Controls.Add(this.panel_configHeader);
+            this.panel_config.Controls.Add(this.btn_output);
             this.panel_config.Controls.Add(this.txt_ext);
             this.panel_config.Controls.Add(this.btn_sub);
-            this.panel_config.Controls.Add(this.panel10);
             this.panel_config.Controls.Add(this.panel5);
-            this.panel_config.Controls.Add(this.txt_sub);
             this.panel_config.Controls.Add(this.txt_prefix);
             this.panel_config.Controls.Add(this.cbx_scale);
             this.panel_config.Controls.Add(this.panel6);
@@ -414,10 +416,6 @@ namespace Conversor {
             this.input.Multiselect = true;
             resources.ApplyResources(this.input, "input");
             // 
-            // output
-            // 
-            resources.ApplyResources(this.output, "output");
-            // 
             // btn_remove
             // 
             this.btn_remove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
@@ -454,6 +452,34 @@ namespace Conversor {
             // open_subtitle
             // 
             resources.ApplyResources(this.open_subtitle, "open_subtitle");
+            // 
+            // btn_removeSub
+            // 
+            this.btn_removeSub.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.btn_removeSub, "btn_removeSub");
+            this.btn_removeSub.FlatAppearance.BorderSize = 0;
+            this.btn_removeSub.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btn_removeSub.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.btn_removeSub.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_removeSub.IconSize = 30;
+            this.btn_removeSub.Name = "btn_removeSub";
+            this.btn_removeSub.Tag = "sub";
+            this.btn_removeSub.UseVisualStyleBackColor = true;
+            this.btn_removeSub.Click += new System.EventHandler(this.btnCrossRemove_Click);
+            // 
+            // btn_removeOutput
+            // 
+            this.btn_removeOutput.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.btn_removeOutput, "btn_removeOutput");
+            this.btn_removeOutput.FlatAppearance.BorderSize = 0;
+            this.btn_removeOutput.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.btn_removeOutput.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.btn_removeOutput.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_removeOutput.IconSize = 30;
+            this.btn_removeOutput.Name = "btn_removeOutput";
+            this.btn_removeOutput.Tag = "output";
+            this.btn_removeOutput.UseVisualStyleBackColor = true;
+            this.btn_removeOutput.Click += new System.EventHandler(this.btnCrossRemove_Click);
             // 
             // form_main
             // 
@@ -517,7 +543,6 @@ namespace Conversor {
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TextBox txt_output;
         private System.Windows.Forms.OpenFileDialog input;
-        private System.Windows.Forms.SaveFileDialog output;
         private FontAwesome.Sharp.IconButton btn_remove;
         private System.Windows.Forms.Panel panel_configHeader;
         private System.Windows.Forms.Label label2;
@@ -533,7 +558,8 @@ namespace Conversor {
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel_scale;
         private System.Windows.Forms.OpenFileDialog open_subtitle;
-        private System.Windows.Forms.FolderBrowserDialog folder;
+        private FontAwesome.Sharp.IconButton btn_removeSub;
+        private FontAwesome.Sharp.IconButton btn_removeOutput;
     }
 }
 

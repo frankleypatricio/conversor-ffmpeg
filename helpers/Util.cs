@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.IO;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace Conversor.Helpers {
     class Util {
@@ -10,14 +11,21 @@ namespace Conversor.Helpers {
         public static bool checkDialogResult(DialogResult result)
             => result==DialogResult.OK | result==DialogResult.Yes;
 
+        public static bool checkDialogResult(CommonFileDialogResult result)
+            => result==CommonFileDialogResult.Ok;
+
         public static string removeExtension(string fullName) {
             int count = fullName.LastIndexOf(".");
             return fullName.Remove(count);
         }
 
         public static string getFileName(string fullPath) {
-            FileInfo file = new FileInfo(fullPath);
-            return file.Exists ? file.Name : "";
+            try {
+                FileInfo file = new FileInfo(fullPath);
+                return file.Exists ? file.Name : "";
+            } catch(System.ArgumentException) {
+                return "";
+            }
         }
 
         public static void clearTextBox(TextBox[] itens) {

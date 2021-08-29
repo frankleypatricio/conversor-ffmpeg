@@ -6,9 +6,12 @@ using Conversor.Helpers;
 using Conversor.Models;
 using Conversor.Components;
 using Conversor.Enums;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using FontAwesome.Sharp;
 
 namespace Conversor {
     public partial class form_main : Form {
+        CommonOpenFileDialog output = new CommonOpenFileDialog(); // Selecionar pasta de saída
         private FileListBox fileList = new FileListBox(); // Lista de arquivos
         private General general = new General(); // Configurações gerais
         private int selectedItem = -1; // Item selecionado na lista
@@ -21,6 +24,10 @@ namespace Conversor {
         public form_main() {
             InitializeComponent();
             radio_geral.Checked=true;
+
+            // output
+            output.IsFolderPicker=true;
+            output.Title="Selecionar pasta de saída";
 
             // fileList
             fileList.BackColor=Color.FromArgb(50, 56, 66);
@@ -60,15 +67,35 @@ namespace Conversor {
         }
 
         private void btnSubtitle_Click(object sender, EventArgs e) {
-            if(Util.checkDialogResult(open_subtitle.ShowDialog()))
+            if(Util.checkDialogResult(open_subtitle.ShowDialog())) {
                 txt_sub.Text=Util.getFileName(open_subtitle.FileName);
+                UsedSettings.Subtitle=open_subtitle.FileName;
+            } else UsedSettings.Subtitle=txt_sub.Text="";
+
+            updateCrossRemoveButtons();
         }
 
         private void btnOutput_Click(object sender, EventArgs e) {
-            output.ShowDialog();
-            Console.WriteLine(output.FileName);
-            /*if(Util.checkDialogResult(output.ShowDialog()))
-                txt_sub.Text=Util.getFileName(open_subtitle.FileName);*/
+            if(Util.checkDialogResult(output.ShowDialog()))
+                UsedSettings.Path=txt_output.Text=output.FileName;
+            else UsedSettings.Path=txt_output.Text="";
+
+            updateCrossRemoveButtons();
+        }
+
+        private void btnCrossRemove_Click(object sender, EventArgs e) {
+            IconButton btn = (IconButton)sender;
+            string tag = btn.Tag.ToString();
+
+            btn.Enabled=false;
+            switch(tag) {
+                case "sub":
+                    UsedSettings.Subtitle=txt_sub.Text="";
+                    break;
+                case "output":
+                    UsedSettings.Path=txt_output.Text="";
+                    break;
+            }
         }
 
         private void list_files_SelectedIndexChanged(object sender, EventArgs e) {
@@ -84,7 +111,7 @@ namespace Conversor {
                 }
             }
 
-            if(haveItens) setEditor(haveItens);
+            setEditor(haveItens);
         }
 
         private void cbx_scale_CheckedChanged(object sender, EventArgs e) {
@@ -135,10 +162,11 @@ namespace Conversor {
         private void updateSettings() {
             txt_ext.Text=UsedSettings.Extension;
             txt_prefix.Text=UsedSettings.Prefix;
-            txt_sub.Text=UsedSettings.Subtitle;
+            txt_sub.Text=Util.getFileName(UsedSettings.Subtitle);
             txt_output.Text=UsedSettings.Path;
             setTxtScales(UsedSettings.ChangeScale ? UsedSettings.Scale : Util.EmptyScale);
             cbx_scale.Checked=UsedSettings.ChangeScale;
+            updateCrossRemoveButtons();
         }
 
         private void setTxtScales(string[] scales) {
@@ -153,6 +181,11 @@ namespace Conversor {
                         btn_process.Enabled=enabled;
 
             if(!enabled) Util.clearTextBox(new TextBox[] { txt_ext, txt_output, txt_prefix, txt_sub, txt_scaleW, txt_scaleH });
+        }
+
+        private void updateCrossRemoveButtons() {
+            btn_removeSub.Enabled=(txt_sub.Text!="");
+            btn_removeOutput.Enabled=(txt_output.Text!="");
         }
     }
 }
