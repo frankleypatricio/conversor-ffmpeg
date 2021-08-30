@@ -16,28 +16,10 @@ namespace Conversor.Controlers.Ffmpeg {
             get => outParams.ToString();
         }
 
-        public OperationResult SetParams(FFmpeg ffmpeg) {
-            OperationResult result = new OperationResult();
-
-            try {
-                MediaFile f = ffmpeg.File;
-                OutputSettings s = ffmpeg.Settings;
-
-                inParams.Append(defaultParams);
-
-                if(s.ChangeScale) SetScale(s.Scale);
-                if(s.Subtitle!="") SetSubtitle(new FFmpeg().ConvertSubtitle(s.Subtitle));
-            } catch(ConvertSubtitleException e) {
-                result.Error();
-                result.Title=e.Title;
-                result.AddMessege(e.Message);
-                result.AddContent(e.File);
-            } catch(Exception e) {
-                result.Error();
-                result.AddMessege(e.Message);
-            }
-            
-            return result;
+        public void SetParams(OutputSettings settings) {
+            inParams.Append(defaultParams);
+            if(settings.ChangeScale) SetScale(settings.Scale);
+            if(settings.Subtitle!="") SetSubtitle(new FFmpeg().ConvertSubtitle(settings.Subtitle));
         }
 
         private void RemoveParams(string toRemove) {

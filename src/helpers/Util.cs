@@ -28,6 +28,11 @@ namespace Conversor.Helpers {
             }
         }
 
+        public static string getFileExtension(string fullPath) {
+            int end = fullPath.LastIndexOf(".");
+            return fullPath.Remove(0, end);
+        }
+
         public static void clearTextBox(TextBox[] itens) {
             foreach(TextBox item in itens) item.Text="";
         }

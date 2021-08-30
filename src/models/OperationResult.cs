@@ -30,9 +30,16 @@ namespace Conversor.Models {
             title="Ocorreu um erro inesperado";
         }
 
+        public void SetCompleteError(string tile, string message, string file) {
+            SetError();
+            this.title=Title;
+            AddMessege(message);
+            AddContent(file);
+        }
+
         public void AddMessege(string msg) => messege.Add(msg);
         public void AddContent(string msg) => content.Add(msg);
 
-        public void Error() => state=false;
+        public void SetError() => state=false;
     }
 }

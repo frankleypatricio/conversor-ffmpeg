@@ -5,6 +5,8 @@ using System.Text;
 using Conversor.Exceptions;
 using Conversor.Business;
 using Conversor.Helpers;
+using System;
+using System.Windows.Forms;
 
 namespace Conversor.Controlers.Ffmpeg {
     class FFmpeg {
@@ -12,20 +14,10 @@ namespace Conversor.Controlers.Ffmpeg {
 
         private MediaFile file;
         private OutputSettings settings;
+
         private FFmpegParams fileParams;
         private OperationResult isReady;
-
         private Process process;
-
-        public OperationResult IsReady {
-            get => isReady;
-        }
-        public MediaFile File {
-            get => file;
-        }
-        public OutputSettings Settings {
-            get => settings;
-        }
 
         public string StandardOutput {
             get { return process.StandardOutput.ReadToEnd(); }
@@ -41,16 +33,72 @@ namespace Conversor.Controlers.Ffmpeg {
             get { return process.HasExited; }
         }
 
-        public FFmpeg(){}
+        public FFmpeg() {}
 
         public FFmpeg(MediaFile file, OutputSettings settings) {
             this.file=file;
             this.settings=settings;
-            isReady=new OperationResult(false);
             fileParams=new FFmpegParams();
         }
 
-        private static ProcessStartInfo getProcessStartInfo(string _params, bool redirect) {
+        private bool PreapareStatement(string inPath, ref string outPath) {
+            isReady=new OperationResult();
+
+            try {
+                fileParams.SetParams(settings);
+                if(File.Exists(outPath)) {
+                    switch(fileAlreadyExistsDialog(outPath)) {
+                        case DialogResult.Yes:
+                            fileParams.Overwrite(true);
+                            break;
+                        case DialogResult.No:
+                            outPath=KeepFile(outPath);
+                            break;
+                        case DialogResult.Cancel:
+                            MessageBox.Show("Conversão do arquivo "+file.FullName+" cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return false;
+                    }
+                }
+            } catch(ConversionException e) {
+                isReady.SetCompleteError(e.Title, e.Message, e.File);
+            } catch(ConvertSubtitleException e) {
+                isReady.SetCompleteError(e.Title, e.Message, e.File);
+            } catch(Exception e) {
+                isReady.SetError();
+                isReady.AddMessege(e.Message);
+            }
+
+            return isReady.State;
+        }
+
+        public void Start() {
+            // VALIDAR INFILE E OUTPATH NA BLL
+            string inFile = file.FullPath;
+            string outFile = settings.Path; // Montar o outFile com o prefixo na BLL
+            if(!PreapareStatement(inFile, ref outFile)) return;
+
+            string _params = new StringBuilder().AppendFormat(
+                "-i {0} {1} {2} {3}", // 0- InParams / 1- InFile / 2- OutParams / 3- OutFile
+                fileParams.InParams,
+                fileParams.OutParams
+            ).ToString();
+
+            try {
+                ProcessStartInfo info = getProcessStartInfo(_params, false);
+                using(process=new Process()) {
+                    process.StartInfo=info;
+                    process.Start();
+                    process.WaitForExit();
+                }
+
+                if(process.ExitCode==1)
+                    throw new ConversionException(ConversionException.getErrorMessege(StandardError));
+            } catch(Exception) {
+
+            }
+        }
+
+        private ProcessStartInfo getProcessStartInfo(string _params, bool redirect) {
             ProcessStartInfo info = new ProcessStartInfo(ffmpeg, _params);
             info.UseShellExecute=false;
             info.CreateNoWindow=true;
@@ -58,15 +106,7 @@ namespace Conversor.Controlers.Ffmpeg {
             return info;
         }
 
-        public void PreapareStatement()
-            => isReady = fileParams.SetParams(this);
-
-        public bool Start() {
-            return true;
-        }
-
         public string ConvertSubtitle(string srtFile) {
-            srtFile=srtFile.Trim();
             if(!new FileInfo(srtFile).Exists) throw new ConvertSubtitleException("O seguinte arquivo de legenda não existe:", srtFile);
             if(!srtFile.EndsWith(".srt")) throw new ConvertSubtitleException($"O seguinte arquivo de legenda está no formato errado (esperado: .srt):", srtFile);
 
@@ -94,6 +134,28 @@ namespace Conversor.Controlers.Ffmpeg {
             string path = file.Remove(start);
             string fileName = file.Remove(0, start);
             file=$"{path}\\temp{fileName}";
+        }
+
+        private DialogResult fileAlreadyExistsDialog(string outPath) {
+            return MessageBox.Show(
+                "O arquivo de saída já existe no diretório, deseja substituílo?\n"+
+                "- "+outPath+
+                "\n( Caso escolha 'Não', os dois arquivos serão mantidos )",
+                "Atenção",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Warning
+            );
+        }
+
+        private string KeepFile(string outFile) {
+            string ext = Util.getFileExtension(outFile);
+            string path = Util.removeExtension(outFile);
+            int num = 1;
+
+            while(File.Exists(outFile))
+                outFile=$"{path}{num++}_{ext}";
+
+            return outFile;
         }
     }
 }
