@@ -1,6 +1,7 @@
 ﻿using Conversor.Models;
 using Conversor.Exceptions;
 using Conversor.Components;
+using System;
 
 namespace Conversor.Controlers {
     class General {
@@ -20,7 +21,7 @@ namespace Conversor.Controlers {
 
                     list.AddFile(file);
                 }
-            } catch(FileAlreadyOnList e) {
+            } catch(Exception e) {
                 // faliou
             }
         }
