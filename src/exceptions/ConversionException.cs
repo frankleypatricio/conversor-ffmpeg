@@ -10,18 +10,18 @@ namespace Conversor.Exceptions {
             get => title;
         }
 
-        public ConversionException(string file) : base(defaultMessage)
+        public ConversionException(string file) : base(String.Format("{0} {1}", defaultMessage, file))
             => File=file;
 
         public ConversionException(string messege, string file) : base(messege)
             => File=file;
 
-        public static string getErrorMessege(string error) {
+        public static string getErrorMessege(string error, string file="", string ext="") {
             error=getErrorLine(error);
             string messege = defaultMessage;
 
             if(error.Contains("Unable to find a suitable output format for"))
-                messege="Extenção para conversão não suportada";
+                messege=String.Format("A extenção '{0}' não é suportada para conversão do arquivo '{1}'", ext, file);
 
             return messege;
         }

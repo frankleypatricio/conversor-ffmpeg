@@ -259,6 +259,7 @@ namespace Conversor {
             this.btn_process.IconSize = 80;
             this.btn_process.Name = "btn_process";
             this.btn_process.UseVisualStyleBackColor = false;
+            this.btn_process.Click += new System.EventHandler(this.btnProcess_Click);
             // 
             // btn_sub
             // 

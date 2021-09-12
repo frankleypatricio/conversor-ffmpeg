@@ -2,7 +2,7 @@
 using System.IO;
 
 namespace Conversor.Data {
-    class FileCreator {
+    class LocalFilesDAO {
         public void CreateTempFolder()
             => Directory.CreateDirectory($"{Helpers.Path.Root}/temp");
     }

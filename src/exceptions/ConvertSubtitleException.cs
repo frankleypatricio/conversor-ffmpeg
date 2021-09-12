@@ -10,10 +10,10 @@ namespace Conversor.Exceptions {
             get => title;
         }
 
-        public ConvertSubtitleException(string file) : base(defaultMessage)
+        public ConvertSubtitleException(string file) : base(String.Format("{0} {1}", defaultMessage, file))
             => File=file;
 
-        public ConvertSubtitleException(string messege, string file) : base(messege)
+        public ConvertSubtitleException(string messege, string file) : base(String.Format("{0} {1}", messege, file))
             => File=file;
     }
 }

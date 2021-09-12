@@ -38,6 +38,10 @@ namespace Conversor.Models {
         public Setting Type {
             get => type;
         }
+        public string FullPath { // Path + Prefixo / Nome do arquivo
+            get; set;
+        }
+
 
         public OutputSettings(Setting type) => this.type=type;
 
@@ -62,6 +66,16 @@ namespace Conversor.Models {
             prefix = "";
             subtitle = "";
             path = "";
+        }
+
+        public void Trim() {
+            Util.Trim(ref prefix);
+            Util.Trim(ref extension);
+            extension=extension.Replace(".", "");
+            if(changeScale) {
+                Util.Trim(ref scale[0]);
+                Util.Trim(ref scale[1]);
+            }
         }
 
         override public string ToString() {

@@ -44,6 +44,14 @@ namespace Conversor {
 
         /* EVENTS
          *************************/
+        private void btnProcess_Click(object sender, EventArgs e) {
+            foreach(MEd)
+            if(setting==Setting.GENERAL) {
+                general.OutputSettings.Trim();
+
+            }
+        }
+
         private void btnSearchFiles_Click(object sender, EventArgs e) {
             if(!Util.checkDialogResult(input.ShowDialog())) return;
 

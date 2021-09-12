@@ -61,19 +61,27 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\business\FileValidator.cs" />
+    <Compile Include="src\business\LocalFilesBLL.cs" />
+    <Compile Include="src\business\FileBLL.cs" />
     <Compile Include="src\components\FileListBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="src\controlers\ffmpeg\FFmpeg.cs" />
     <Compile Include="src\controlers\General.cs" />
-    <Compile Include="src\data\FileCreator.cs" />
+    <Compile Include="src\data\LocalFilesDAO.cs" />
     <Compile Include="src\enums\Setting.cs" />
+    <Compile Include="src\exceptions\LocalFileException.cs" />
     <Compile Include="src\exceptions\ConversionException.cs" />
     <Compile Include="src\exceptions\ConvertSubtitleException.cs" />
     <Compile Include="src\controlers\ffmpeg\FFmpegParams.cs" />
     <Compile Include="src\helpers\Path.cs" />
     <Compile Include="src\models\OperationResult.cs" />
+    <Compile Include="src\views\ErrorMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\views\ErrorMessageBox.Designer.cs">
+      <DependentUpon>ErrorMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\views\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +93,9 @@
     <Compile Include="src\models\MediaFile.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="src\views\ErrorMessageBox.resx">
+      <DependentUpon>ErrorMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\views\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

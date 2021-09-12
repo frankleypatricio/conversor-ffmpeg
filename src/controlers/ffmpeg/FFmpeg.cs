@@ -16,7 +16,6 @@ namespace Conversor.Controlers.Ffmpeg {
         private OutputSettings settings;
 
         private FFmpegParams fileParams;
-        private OperationResult isReady;
         private Process process;
 
         public string StandardOutput {
@@ -41,9 +40,7 @@ namespace Conversor.Controlers.Ffmpeg {
             fileParams=new FFmpegParams();
         }
 
-        private bool PreapareStatement(string inPath, ref string outPath) {
-            isReady=new OperationResult();
-
+        private bool PreapareStatement(string inPath, ref string outPath, ref OperationResult result) {
             try {
                 fileParams.SetParams(settings);
                 if(File.Exists(outPath)) {
@@ -60,22 +57,21 @@ namespace Conversor.Controlers.Ffmpeg {
                     }
                 }
             } catch(ConversionException e) {
-                isReady.SetCompleteError(e.Title, e.Message, e.File);
+                result.AddMessege(e.Message);
             } catch(ConvertSubtitleException e) {
-                isReady.SetCompleteError(e.Title, e.Message, e.File);
+                result.AddMessege(e.Message);
             } catch(Exception e) {
-                isReady.SetError();
-                isReady.AddMessege(e.Message);
+                result.AddMessege(e.Message);
             }
 
-            return isReady.State;
+            return result.State;
         }
 
-        public void Start() {
+        public void Start(ref OperationResult result) {
             // VALIDAR INFILE E OUTPATH NA BLL
             string inFile = file.FullPath;
-            string outFile = settings.Path; // Montar o outFile com o prefixo na BLL
-            if(!PreapareStatement(inFile, ref outFile)) return;
+            string outFile = settings.FullPath; // Montar o outFile com o prefixo na BLL
+            if(!PreapareStatement(inFile, ref outFile, ref result)) return;
 
             string _params = new StringBuilder().AppendFormat(
                 "-i {0} {1} {2} {3}", // 0- InParams / 1- InFile / 2- OutParams / 3- OutFile
@@ -92,9 +88,16 @@ namespace Conversor.Controlers.Ffmpeg {
                 }
 
                 if(process.ExitCode==1)
-                    throw new ConversionException(ConversionException.getErrorMessege(StandardError));
-            } catch(Exception) {
+                    throw new ConversionException(
+                        ConversionException.getErrorMessege(StandardError, file.FullName, settings.Extension));
 
+                result.State=true;
+            } catch(ConversionException e) {
+                result.AddMessege(e.Message);
+            } catch(ConvertSubtitleException e) {
+                result.AddMessege(e.Message);
+            } catch(Exception e) {
+                result.AddMessege(e.Message);
             }
         }
 
@@ -110,7 +113,7 @@ namespace Conversor.Controlers.Ffmpeg {
             if(!new FileInfo(srtFile).Exists) throw new ConvertSubtitleException("O seguinte arquivo de legenda não existe:", srtFile);
             if(!srtFile.EndsWith(".srt")) throw new ConvertSubtitleException($"O seguinte arquivo de legenda está no formato errado (esperado: .srt):", srtFile);
 
-            new FileValidator().ValidateTempFolder();
+            new LocalFilesBLL().tempFolder();
 
             string assFile = srtFile.Replace(".srt", ".ass");
             addTempFolder(ref assFile);
@@ -124,7 +127,8 @@ namespace Conversor.Controlers.Ffmpeg {
             }
 
             if(process.ExitCode==1)
-                throw new ConversionException(ConversionException.getErrorMessege(StandardError));
+                throw new ConversionException(
+                    ConversionException.getErrorMessege(StandardError, srtFile, "ass"));
 
             return assFile;
         }

@@ -1,5 +1,4 @@
 ﻿using Conversor.Models;
-using Conversor.Exceptions;
 using Conversor.Components;
 using System;
 

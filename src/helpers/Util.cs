@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -6,6 +7,10 @@ namespace Conversor.Helpers {
     class Util {
         public static string[] EmptyScale {
             get => new string[] { "", "" };
+        }
+        
+        public static string InvalidCharacters {
+            get => "\\ / | < > * : \" ? ";
         }
 
         public static bool checkDialogResult(DialogResult result)
@@ -28,6 +33,9 @@ namespace Conversor.Helpers {
             }
         }
 
+        public static bool isEmpty(string str)
+            => str=="";
+
         public static string getFileExtension(string fullPath) {
             int end = fullPath.LastIndexOf(".");
             return fullPath.Remove(0, end);
@@ -41,6 +49,8 @@ namespace Conversor.Helpers {
         //public static void removeString(string remove, ref string str) => str.Replace(remove, "");
 
         public static string toString(object data) => data!=null ? data.ToString() : "";
-        
+
+        public static string Trim(ref string str) => str=str.Trim();
+
     }
 }
