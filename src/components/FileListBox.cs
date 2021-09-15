@@ -10,6 +10,10 @@ namespace Conversor.Components {
             get => file[SelectedIndex];
         }
 
+        public List<MediaFile> Files {
+            get => file;
+        }
+
         public FileListBox() : base() {}
 
         public void SelectLastItem() => SelectedIndex=Items.Count-1;

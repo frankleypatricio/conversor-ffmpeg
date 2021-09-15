@@ -8,7 +8,7 @@ using System;
 namespace Conversor.Business {
     class FileBLL {
         OperationResult result;
-        public OperationResult validateToConvert(MediaFile file, OutputSettings settings) {
+        public OperationResult Start(MediaFile file, OutputSettings settings) {
             result=new OperationResult(false);
 
             try {
@@ -50,7 +50,7 @@ namespace Conversor.Business {
                 }
             }
 
-            if(!Util.isEmpty(settings.Subtitle)&&!File.Exists(settings.Subtitle)) {
+            if(!Util.isEmpty(settings.Subtitle) && !File.Exists(settings.Subtitle)) {
                 result.AddMessege(
                     String.Format("- Arquivo de legenda não encontrado no caminho '{0}'", settings.Subtitle)
                 );
@@ -72,12 +72,25 @@ namespace Conversor.Business {
             }
 
             string outname = Util.isEmpty(settings.Prefix) ? file.Name : settings.Prefix;
-            settings.FullPath=string.Format("{0}{1}.{2}", settings.Path, outname, settings.Extension);
+            settings.FullPath=string.Format("{0}/{1}.{2}", settings.Path, outname, settings.Extension);
 
             FFmpeg fFmpeg = new FFmpeg(file, settings);
             fFmpeg.Start(ref result);
 
             return result;
+        }
+
+        public string GetValidFileName(OutputSettings settings, ref int num) {
+            string validPrefix;
+            string isValid;
+
+            do {
+                num++;
+                validPrefix=$"{settings.Prefix}_{num}";
+                isValid=$"{settings.Path}/{validPrefix}.{settings.Extension}";
+            } while(File.Exists(isValid));
+
+            return validPrefix;
         }
     }
 }

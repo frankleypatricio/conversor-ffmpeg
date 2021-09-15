@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Conversor.Views;
 
 namespace Conversor.Models {
     public class OperationResult {
@@ -46,6 +47,9 @@ namespace Conversor.Models {
             messeges=content=new List<string>();
             title="Ocorreu um erro inesperado";
         }
+
+        public void ShowMessage()
+            => new FormMessage().ShowDialog(this);
 
         public void SetCompleteError(string tile, string message, string file) {
             this.title=Title;

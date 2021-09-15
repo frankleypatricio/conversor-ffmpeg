@@ -58,13 +58,16 @@ namespace Conversor.Controlers.Ffmpeg {
                 }
             } catch(ConversionException e) {
                 result.AddMessege(e.Message);
+                return false;
             } catch(ConvertSubtitleException e) {
                 result.AddMessege(e.Message);
+                return false;
             } catch(Exception e) {
                 result.AddMessege(e.Message);
+                return false;
             }
 
-            return result.State;
+            return true;
         }
 
         public void Start(ref OperationResult result) {
@@ -73,23 +76,25 @@ namespace Conversor.Controlers.Ffmpeg {
             string outFile = settings.FullPath; // Montar o outFile com o prefixo na BLL
             if(!PreapareStatement(inFile, ref outFile, ref result)) return;
 
-            string _params = new StringBuilder().AppendFormat(
-                "-i {0} {1} {2} {3}", // 0- InParams / 1- InFile / 2- OutParams / 3- OutFile
+            string _params = string.Format(
+                "{0} {1} {2} {3}", // 0- InParams / 1- InFile / 2- OutParams / 3- OutFile
                 fileParams.InParams,
-                fileParams.OutParams
+                inFile,
+                fileParams.OutParams,
+                outFile
             ).ToString();
 
             try {
-                ProcessStartInfo info = getProcessStartInfo(_params, false);
+                ProcessStartInfo info = getProcessStartInfo(_params, true);
                 using(process=new Process()) {
                     process.StartInfo=info;
                     process.Start();
                     process.WaitForExit();
-                }
 
-                if(process.ExitCode==1)
-                    throw new ConversionException(
-                        ConversionException.getErrorMessege(StandardError, file.FullName, settings.Extension));
+                    if(process.ExitCode==1)
+                        throw new ConversionException(
+                            ConversionException.getErrorMessege(StandardError, file.FullName, settings.Extension));
+                }
 
                 result.State=true;
             } catch(ConversionException e) {

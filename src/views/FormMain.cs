@@ -8,6 +8,9 @@ using Conversor.Components;
 using Conversor.Enums;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using FontAwesome.Sharp;
+using System.IO;
+using Conversor.Business;
+using System.Collections.Generic;
 
 namespace Conversor {
     public partial class form_main : Form {
@@ -45,10 +48,27 @@ namespace Conversor {
         /* EVENTS
          *************************/
         private void btnProcess_Click(object sender, EventArgs e) {
-            foreach(MEd)
-            if(setting==Setting.GENERAL) {
-                general.OutputSettings.Trim();
+            List<OperationResult> erros = new List<OperationResult>();
+            OutputSettings settings;
+            int prefixNum = -1;
 
+            foreach(MediaFile file in fileList.Files) {
+                settings=setting==Setting.GENERAL ? general.OutputSettings : file.OutputSettings;
+                settings.Trim();
+
+                if(setting==Setting.GENERAL)
+                    settings.Prefix=new FileBLL().GetValidFileName(settings, ref prefixNum);
+
+                OperationResult result = new FileBLL().Start(file, settings);
+
+                if(!result.State) {
+                    erros.Add(result);
+                }
+            }
+
+            
+            foreach(OperationResult erro in erros) {
+                erro.ShowMessage();
             }
         }
 

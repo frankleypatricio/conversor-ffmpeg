@@ -10,7 +10,7 @@ namespace Conversor.Helpers {
         }
         
         public static string InvalidCharacters {
-            get => "\\ / | < > * : \" ? ";
+            get => "\\ / | < > * : \" ?";
         }
 
         public static bool checkDialogResult(DialogResult result)
