@@ -50,6 +50,13 @@ namespace Conversor {
             this.btn_process = new FontAwesome.Sharp.IconButton();
             this.btn_sub = new FontAwesome.Sharp.IconButton();
             this.panel_config = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel_overwrite = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.radio_decidir = new System.Windows.Forms.RadioButton();
+            this.radio_manter = new System.Windows.Forms.RadioButton();
+            this.radio_subst = new System.Windows.Forms.RadioButton();
+            this.btn_searchExt = new FontAwesome.Sharp.IconButton();
             this.label5 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txt_output = new System.Windows.Forms.TextBox();
@@ -59,7 +66,6 @@ namespace Conversor {
             this.panel_scale = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel_configHeader = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,6 +79,7 @@ namespace Conversor {
             this.open_subtitle = new System.Windows.Forms.OpenFileDialog();
             this.panel_progress.SuspendLayout();
             this.panel_config.SuspendLayout();
+            this.panel_overwrite.SuspendLayout();
             this.panel_scale.SuspendLayout();
             this.panel_configHeader.SuspendLayout();
             this.panel_process.SuspendLayout();
@@ -277,6 +284,12 @@ namespace Conversor {
             // panel_config
             // 
             this.panel_config.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(66)))));
+            this.panel_config.Controls.Add(this.cbx_scale);
+            this.panel_config.Controls.Add(this.label6);
+            this.panel_config.Controls.Add(this.txt_ext);
+            this.panel_config.Controls.Add(this.panel5);
+            this.panel_config.Controls.Add(this.panel_overwrite);
+            this.panel_config.Controls.Add(this.btn_searchExt);
             this.panel_config.Controls.Add(this.label5);
             this.panel_config.Controls.Add(this.panel9);
             this.panel_config.Controls.Add(this.txt_output);
@@ -286,18 +299,78 @@ namespace Conversor {
             this.panel_config.Controls.Add(this.txt_sub);
             this.panel_config.Controls.Add(this.btn_removeSub);
             this.panel_config.Controls.Add(this.panel_scale);
-            this.panel_config.Controls.Add(this.label6);
             this.panel_config.Controls.Add(this.label4);
             this.panel_config.Controls.Add(this.panel_configHeader);
             this.panel_config.Controls.Add(this.btn_output);
-            this.panel_config.Controls.Add(this.txt_ext);
             this.panel_config.Controls.Add(this.btn_sub);
-            this.panel_config.Controls.Add(this.panel5);
             this.panel_config.Controls.Add(this.txt_prefix);
-            this.panel_config.Controls.Add(this.cbx_scale);
             this.panel_config.Controls.Add(this.panel6);
             resources.ApplyResources(this.panel_config, "panel_config");
             this.panel_config.Name = "panel_config";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label6.Name = "label6";
+            // 
+            // panel_overwrite
+            // 
+            this.panel_overwrite.Controls.Add(this.label9);
+            this.panel_overwrite.Controls.Add(this.radio_decidir);
+            this.panel_overwrite.Controls.Add(this.radio_manter);
+            this.panel_overwrite.Controls.Add(this.radio_subst);
+            resources.ApplyResources(this.panel_overwrite, "panel_overwrite");
+            this.panel_overwrite.Name = "panel_overwrite";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
+            this.label9.Name = "label9";
+            // 
+            // radio_decidir
+            // 
+            resources.ApplyResources(this.radio_decidir, "radio_decidir");
+            this.radio_decidir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio_decidir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
+            this.radio_decidir.Name = "radio_decidir";
+            this.radio_decidir.TabStop = true;
+            this.radio_decidir.Tag = "2";
+            this.radio_decidir.UseVisualStyleBackColor = true;
+            // 
+            // radio_manter
+            // 
+            resources.ApplyResources(this.radio_manter, "radio_manter");
+            this.radio_manter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio_manter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
+            this.radio_manter.Name = "radio_manter";
+            this.radio_manter.TabStop = true;
+            this.radio_manter.Tag = "1";
+            this.radio_manter.UseVisualStyleBackColor = true;
+            // 
+            // radio_subst
+            // 
+            resources.ApplyResources(this.radio_subst, "radio_subst");
+            this.radio_subst.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio_subst.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
+            this.radio_subst.Name = "radio_subst";
+            this.radio_subst.TabStop = true;
+            this.radio_subst.Tag = "0";
+            this.radio_subst.UseVisualStyleBackColor = true;
+            // 
+            // btn_searchExt
+            // 
+            this.btn_searchExt.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.btn_searchExt, "btn_searchExt");
+            this.btn_searchExt.FlatAppearance.BorderSize = 0;
+            this.btn_searchExt.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.btn_searchExt.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(138)))), ((int)(((byte)(211)))));
+            this.btn_searchExt.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_searchExt.IconSize = 29;
+            this.btn_searchExt.Name = "btn_searchExt";
+            this.btn_searchExt.Tag = "sub";
+            this.btn_searchExt.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -378,12 +451,6 @@ namespace Conversor {
             resources.ApplyResources(this.label7, "label7");
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
             this.label7.Name = "label7";
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(229)))), ((int)(((byte)(200)))));
-            this.label6.Name = "label6";
             // 
             // label4
             // 
@@ -504,6 +571,8 @@ namespace Conversor {
             this.panel_progress.PerformLayout();
             this.panel_config.ResumeLayout(false);
             this.panel_config.PerformLayout();
+            this.panel_overwrite.ResumeLayout(false);
+            this.panel_overwrite.PerformLayout();
             this.panel_scale.ResumeLayout(false);
             this.panel_scale.PerformLayout();
             this.panel_configHeader.ResumeLayout(false);
@@ -561,6 +630,12 @@ namespace Conversor {
         private System.Windows.Forms.OpenFileDialog open_subtitle;
         private FontAwesome.Sharp.IconButton btn_removeSub;
         private FontAwesome.Sharp.IconButton btn_removeOutput;
+        private System.Windows.Forms.Panel panel_overwrite;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RadioButton radio_decidir;
+        private System.Windows.Forms.RadioButton radio_manter;
+        private System.Windows.Forms.RadioButton radio_subst;
+        private FontAwesome.Sharp.IconButton btn_searchExt;
     }
 }
 

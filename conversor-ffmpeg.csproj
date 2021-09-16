@@ -66,9 +66,13 @@
     <Compile Include="src\components\FileListBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="src\components\FlatComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\controlers\ffmpeg\FFmpeg.cs" />
     <Compile Include="src\controlers\General.cs" />
     <Compile Include="src\data\LocalFilesDAO.cs" />
+    <Compile Include="src\enums\Overwrite.cs" />
     <Compile Include="src\enums\Setting.cs" />
     <Compile Include="src\exceptions\LocalFileException.cs" />
     <Compile Include="src\exceptions\ConversionException.cs" />

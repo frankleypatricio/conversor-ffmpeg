@@ -26,7 +26,7 @@ namespace Conversor {
 
         public form_main() {
             InitializeComponent();
-            radio_geral.Checked=true;
+            radio_geral.Checked=radio_decidir.Checked=true;
 
             // output
             output.IsFolderPicker=true;
@@ -150,10 +150,27 @@ namespace Conversor {
             }
         }
 
+        private void RadioOverwrite_CheckedChanged(object sender, EventArgs e) {
+            RadioButton radio = (RadioButton)sender;
+            short tag = Convert.ToInt16(radio.Tag);
+            switch(tag) {
+                case 0:
+                    UsedSettings.Overwrite=Overwrite.YES;
+                    break;
+                case 1:
+                    UsedSettings.Overwrite=Overwrite.NO;
+                    break;
+                case 2:
+                    UsedSettings.Overwrite=Overwrite.DECIDE;
+                    break;
+            }
+            updateSettings();
+        }
+
         private void RadioSettings_CheckedChanged(object sender, EventArgs e) {
             RadioButton radio = (RadioButton)sender;
             short tag = Convert.ToInt16(radio.Tag);
-            setting=tag==0 ? Setting.INDIVIDUAL : Setting.GENERAL;
+            setting= tag==0 ? Setting.INDIVIDUAL : Setting.GENERAL;
             updateSettings();
         }
 

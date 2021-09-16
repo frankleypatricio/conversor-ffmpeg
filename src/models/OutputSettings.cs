@@ -9,6 +9,7 @@ namespace Conversor.Models {
         private string prefix="";
         private string subtitle="";
         private string path="";
+        private Overwrite overwrite; // Se vai substituir os arquivos já existentes
         private Setting type; // Se é configurações gerais ou individuais
 
         public string Extension {
@@ -35,6 +36,10 @@ namespace Conversor.Models {
             get{return path;}
             set => path=value;
         }
+        public Overwrite Overwrite {
+            get => overwrite;
+            set => overwrite=value;
+        }
         public Setting Type {
             get => type;
         }
@@ -50,13 +55,14 @@ namespace Conversor.Models {
             this.extension=extension;
         }
 
-        public OutputSettings(string extension, bool changeScale, string prefix, string subtitle, string path, Setting type, string[] scale = null) {
+        public OutputSettings(string extension, bool changeScale, string prefix, string subtitle, string path, Overwrite overwrite, Setting type, string[] scale = null) {
             this.extension=extension;
             this.changeScale=changeScale;
             this.scale = (changeScale && scale!=null) ? scale : Util.EmptyScale;
             this.prefix=prefix;
             this.subtitle=subtitle;
             this.path=path;
+            this.overwrite=overwrite;
             this.type=type;
         }
 

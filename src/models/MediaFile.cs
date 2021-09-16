@@ -39,7 +39,7 @@ namespace Conversor.Models {
             }
         }
 
-        public void setConfigs(string extension, bool changeScale, string prefix, string subtitle, string path, Enums.Setting type, string[] scale)
-            => outputSettings=new OutputSettings(extension, changeScale, prefix, subtitle, path, type, scale);
+        public void setConfigs(string extension, bool changeScale, string prefix, string subtitle, string path, Enums.Overwrite overwrite, Enums.Setting type, string[] scale)
+            => outputSettings=new OutputSettings(extension, changeScale, prefix, subtitle, path, overwrite, type, scale);
     }
 }

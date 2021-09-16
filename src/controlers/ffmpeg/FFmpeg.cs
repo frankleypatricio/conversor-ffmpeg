@@ -7,6 +7,7 @@ using Conversor.Business;
 using Conversor.Helpers;
 using System;
 using System.Windows.Forms;
+using Conversor.Enums;
 
 namespace Conversor.Controlers.Ffmpeg {
     class FFmpeg {
@@ -41,17 +42,21 @@ namespace Conversor.Controlers.Ffmpeg {
         }
 
         private bool PreapareStatement(string inPath, ref string outPath, ref OperationResult result) {
+            Overwrite overwrite = settings.Overwrite;
             try {
                 fileParams.SetParams(settings);
                 if(File.Exists(outPath)) {
-                    switch(fileAlreadyExistsDialog(outPath)) {
-                        case DialogResult.Yes:
+                    if(overwrite==Overwrite.DECIDE)
+                        overwrite=fileAlreadyExistsDialog(outPath);
+
+                    switch(overwrite) {
+                        case Overwrite.YES:
                             fileParams.Overwrite(true);
                             break;
-                        case DialogResult.No:
+                        case Overwrite.NO:
                             outPath=KeepFile(outPath);
                             break;
-                        case DialogResult.Cancel:
+                        case Overwrite.CANCEL:
                             MessageBox.Show("Conversão do arquivo "+file.FullName+" cancelada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return false;
                     }
@@ -145,8 +150,8 @@ namespace Conversor.Controlers.Ffmpeg {
             file=$"{path}\\temp{fileName}";
         }
 
-        private DialogResult fileAlreadyExistsDialog(string outPath) {
-            return MessageBox.Show(
+        private Overwrite fileAlreadyExistsDialog(string outPath) {
+            DialogResult result = MessageBox.Show(
                 "O arquivo de saída já existe no diretório, deseja substituílo?\n"+
                 "- "+outPath+
                 "\n( Caso escolha 'Não', os dois arquivos serão mantidos )",
@@ -154,6 +159,13 @@ namespace Conversor.Controlers.Ffmpeg {
                 MessageBoxButtons.YesNoCancel,
                 MessageBoxIcon.Warning
             );
+
+            switch(result) {
+                case DialogResult.Yes: return Overwrite.YES;
+                case DialogResult.No: return Overwrite.NO;
+                case DialogResult.Cancel: return Overwrite.CANCEL;
+                default: return settings.Overwrite;
+            }
         }
 
         private string KeepFile(string outFile) {
