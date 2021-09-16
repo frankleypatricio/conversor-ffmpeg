@@ -25,6 +25,9 @@ namespace Conversor.Business {
             if(Util.isEmpty(settings.Path))
                 result.AddMessege("- O campo 'Pasta de saída' é requerido");
 
+            if(Util.isEmpty(settings.Prefix) && settings.Type == Enums.Setting.GENERAL)
+                result.AddMessege("- O campo 'Prefixo' é requerido para configurações gerais");
+
             if(!File.Exists(file.FullPath))
                 result.AddMessege(
                     string.Format("- Arquivo a ser convertido não encontrado no caminho '{0}'", file.FullPath)

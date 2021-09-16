@@ -12,7 +12,7 @@ namespace Conversor.Views {
 
         public void ShowDialog(OperationResult result) {
             Text=result.FormTitle;
-            lbl_title.Text=result.Title;
+            txt_title.Text=result.Title;
             txt_messageList.Lines=result.Messeges.ToArray();
             ShowDialog();
         }
