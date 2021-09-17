@@ -1,0 +1,13 @@
+{
+	"video":[
+		"mp4", "avi", "mkv", "flv", "webm", "mov", "mlv", "m4v",  "3gp", "mpeg" 
+	],
+
+	"image":[
+		"png", "jpg", "bmp", "tiff", "ico"
+	],
+	
+	"audio":[
+		"mp3", "wmv", "wav", "ogg", "3gpp"
+	]
+}
